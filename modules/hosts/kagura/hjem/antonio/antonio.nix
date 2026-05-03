@@ -1,0 +1,63 @@
+{
+  self,
+  inputs,
+  utils,
+  ...
+}:
+let
+  username = "antonio";
+in
+{
+  modules.hjem.${username} =
+    { pkgs, ... }:
+    {
+      imports = [
+        self.modules.hjem.theming
+      ];
+      theming = {
+        inherit username;
+        enable = true;
+        qt = {
+          colorScheme = ./_config/theme/BreezeDark.colors;
+          iconTheme = "Papirus-Dark";
+        };
+      };
+      users.users.${username} = {
+        isNormalUser = true;
+        extraGroups = [
+          "networkmanager"
+          "input"
+          "wheel"
+          "video"
+          "render"
+          "libvrtd"
+        ];
+        shell = pkgs.fish;
+
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEaNh2GVxWz2zLxDa8cMnPtfYQPk1A3xlKKVuKOTNrp2 antonio@hana"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINjywfRHVDeBQBFYZym/c3JDVRwni//tSy5FPKmTgLyN antonio@hana"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDT989Rm6vSVS4cSP2NevoXVS7UnFVYHgfsE6dbM2+s6 hana@antonio"
+        ];
+      };
+      programs.fish.enable = true;
+      programs.gpu-screen-recorder.enable = true;
+
+      hjem.users.${username} = {
+        clobberFiles = true;
+        packages = import ./_packages.nix { inherit inputs pkgs; };
+        xdg.config.files = {
+          "fuzzel/fuzzel.ini".source = ./_config/fuzzel/fuzzel.ini;
+          "nixpkgs".source = ./_config/nixpkgs;
+          "mpv/mpv.conf".source = ./_config/mpv/mpv.conf;
+          "ghostty".source = utils.mkStoreSymlink ./_config/ghostty;
+          "fastfetch".source = ./_config/fastfetch;
+          "git".source = ./_config/git;
+          "fish/config.fish".source = utils.mkStoreSymlink ./_config/fish/config.fish;
+          "fish/functions".source = utils.mkStoreSymlink ./_config/fish/functions;
+          "swappy/config".source = ./_config/swappy/config;
+          "bottom".source = ./_config/bottom;
+        };
+      };
+    };
+}

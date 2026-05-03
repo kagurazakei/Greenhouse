@@ -1,5 +1,21 @@
 {
   "pins": {
+    "ambxst": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "ambxst"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "1.0.12",
+      "revision": "59edec9a0430eb2f679697f4a817a1f44ffcfb8b",
+      "url": "https://api.github.com/repos/kagurazakei/ambxst/tarball/refs/tags/1.0.12",
+      "hash": "sha256-SONu9NiNr0gaLC6rMt3x5x1L6DwSUuGJesizS7Ej2eo="
+    },
     "blink-cmp": {
       "type": "Git",
       "repository": {
@@ -107,6 +123,19 @@
       "url": "https://github.com/yalter/niri/archive/b07bde3ee82dd73115e6b949e4f3f63695da35ea.tar.gz",
       "hash": "sha256-3bwx4WqCB06yfQIGB+OgIckOkEDyKxiTD5pOo4Xz2rI="
     },
+    "nix-cachyos-kernel": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "xddxdd",
+        "repo": "nix-cachyos-kernel"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "bdf1cec8001039a6c6c9a35c27bc56a9f5f03143",
+      "url": "https://github.com/xddxdd/nix-cachyos-kernel/archive/bdf1cec8001039a6c6c9a35c27bc56a9f5f03143.tar.gz",
+      "hash": "sha256-E0jXK/AZpjimObFRYHhQ9uMfc6KRdfKn/yVCfkQnd0A="
+    },
     "nixos-hardware": {
       "type": "Git",
       "repository": {
@@ -172,6 +201,19 @@
       "revision": "783c953987dc56ff0601abe6845ed96f1d00495a",
       "url": "https://github.com/quickshell-mirror/quickshell/archive/783c953987dc56ff0601abe6845ed96f1d00495a.tar.gz",
       "hash": "sha256-lLbV66V3RMNp1l8/UelmR4YzoJ5ONtgvEtiUMJATH/o="
+    },
+    "sysc-greet": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "sysc-greet"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "59260760c6c7cf65079efedf0d967a65ac56463e",
+      "url": "https://github.com/kagurazakei/sysc-greet/archive/59260760c6c7cf65079efedf0d967a65ac56463e.tar.gz",
+      "hash": "sha256-Y2iB3Rg7yNCmvHrGl8n+3vBXxTiuckzJRE+W98FFYmI="
     },
     "zenNvim": {
       "type": "Git",

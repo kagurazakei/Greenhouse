@@ -1,5 +1,5 @@
 {
-  modules.hosts.Amaryllis = {
+  modules.hosts.kagura = {
     nixos.packages.npins.buildFromSrc = true;
   };
 }

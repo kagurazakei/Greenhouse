@@ -1,7 +1,7 @@
 {
-  modules.hosts.Amaryllis = {
+  modules.hosts.kagura = {
     wm.niri = {
-      enable = true;
+      enable = false;
       buildFromSrc = false;
     };
   };

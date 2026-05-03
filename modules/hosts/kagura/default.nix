@@ -1,6 +1,8 @@
-{self, ...}: let
-  hostname = "Amaryllis";
-in {
+{ self, ... }:
+let
+  hostname = "hana";
+in
+{
   modules.hosts.${hostname} = {
     imports = [
       self.modules.nixos.misc_steam
@@ -16,7 +18,10 @@ in {
       self.modules.nixos.nix
       self.modules.nixos.packages
       self.modules.nixos.virtualisation
-
+      self.modules.nixos.intel
+      self.modules.nixos.nvidia
+      self.modules.nixos.sysc-greet
+      self.modules.nixos.ambxst
       self.modules.wm._
       self.modules.wm.hyprland
       self.modules.wm.niri
@@ -26,8 +31,18 @@ in {
 
       ./+hardware.nix
     ];
-
+    nixos = {
+      graphics.intel.hwAccelDriver = "media-driver";
+      graphics.nvidia = {
+        hybrid = {
+          enable = true;
+          igpu.vendor = "intel";
+          igpu.port = "PCI:0:2:0";
+          dgpu.port = "PCI:1:0:0";
+        };
+      };
+    };
     networking.hostName = hostname;
-    system.stateVersion = "25.05";
+    system.stateVersion = "26.05";
   };
 }
