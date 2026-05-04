@@ -3,10 +3,10 @@
   python312Packages,
   mpv,
   writeShellScriptBin,
-  sources,
 }:
 
 let
+  sources = import ../npins;
   version = "3.3.7";
 
   wrappedMpv = writeShellScriptBin "mpv" ''

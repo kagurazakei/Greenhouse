@@ -17,6 +17,7 @@ in
       self.modules.programs.fish
       self.modules.programs.impermanence
       self.modules.programs.yazi
+      self.modules.programs.mpv
       self.modules.nixos.trash
       self.modules.nixos.audio
       self.modules.nixos.bluetooth

@@ -1,88 +1,84 @@
-{
-  writers,
-  fzf,
-  coreutils,
-  gnused,
-}:
-writers.writeFishBin "npins-ui" ''
-  set -g PATH ${coreutils}/bin ${gnused}/bin ${fzf}/bin $PATH
+{ pkgs }:
+let
+  script = pkgs.writeShellScriptBin "npins-ui" ''
+    #!/usr/bin/env bash
+    PATH=${pkgs.coreutils}/bin:${pkgs.gnused}/bin:${pkgs.fzf}/bin:${pkgs.npins}/bin:$PATH
 
-  function resolve_file
-    switch $argv[1]
-      case start
-        echo $NPINS_FILE_START
-        or echo start-plugins.json
+    resolve_file() {
+      case "$1" in
+        start)
+          echo "${NPINS_FILE_START: -start-plugins.json}"
+          ;;
+        opt)
+          echo "${NPINS_FILE_OPT: -opt-plugins.json}"
+          ;;
+        sources)
+          echo "${NPINS_FILE_SOURCES: -npins/sources.json}"
+          ;;
+        *)
+          echo "$1" | sed "s|^~|$HOME|"
+          ;;
+      esac
+    }
 
-      case opt
-        echo $NPINS_FILE_OPT
-        or echo opt-plugins.json
+    MODE="${"1:-sources"}"
+    FILE=$(resolve_file "$MODE")
 
-      case sources
-        echo $NPINS_FILE_SOURCES
-        or echo npins/sources.json
+    if [ ! -f "$FILE" ]; then
+      echo "❌ File not found: $FILE"
+      exit 1
+    fi
 
-      case '*'
-        echo $argv[1] | sed 's|^~|'"$HOME"'|'
-    end
-  end
+    parse() {
+      npins --lock-file "$FILE" show | awk '
+        BEGIN {
+          pin=""; type="unknown"; repo="unknown"; rev="unknown";
+        }
 
-  set MODE sources
-  if test (count $argv) -gt 0
-    set MODE $argv[1]
-  end
+        /^[a-zA-Z0-9._-]+:/ {
+          split($1, a, ":")
+          pin=a[1]
+          type="unknown"
+          repo="unknown"
+          rev="unknown"
+        }
 
-  set FILE (resolve_file $MODE)
+        /^[[:space:]]*type:/ { type=$2 }
 
-  if not test -f $FILE
-    echo "❌ File not found: $FILE"
-    exit 1
-  end
+        /^[[:space:]]*repository:/ {
+          repo=substr($0, index($0, ":") + 2)
+        }
 
-  function parse
-    npins --lock-file $FILE show | awk '
-      BEGIN {
-        pin=""; type="unknown"; repo="unknown"; rev="unknown";
-      }
+        /^[[:space:]]*revision:/ { rev=$2 }
 
-      /^[a-zA-Z0-9._-]+:/ {
-        split($1, a, ":")
-        pin=a[1]
-        type="unknown"
-        repo="unknown"
-        rev="unknown"
-      }
+        /^[[:space:]]*frozen:/ {
+          printf "%s|%s|%s|%s\n", pin, type, repo, rev
+        }
+      '
+    }
 
-      /^[[:space:]]*type:/ { type=$2 }
+    parse | fzf \
+      --ansi \
+      --layout=reverse \
+      --border \
+      --header="📦 NPins UI | file: $FILE" \
+      --preview '
+        line={}
+        pin=$(echo "$line" | cut -d"|" -f1)
+        type=$(echo "$line" | cut -d"|" -f2)
+        repo=$(echo "$line" | cut -d"|" -f3)
+        rev=$(echo "$line" | cut -d"|" -f4)
 
-      /^[[:space:]]*repository:/ {
-        repo=substr($0, index($0, ":") + 2)
-      }
-
-      /^[[:space:]]*revision:/ { rev=$2 }
-
-      /^[[:space:]]*frozen:/ {
-        printf "%s|%s|%s|%s\n", pin, type, repo, rev
-      }
-    '
-  end
-
-  parse | fzf \
-    --ansi \
-    --layout=reverse \
-    --border \
-    --header="📦 NPins UI (Fish) | file: $FILE" \
-    --preview '
-      set line {}
-      set pin (string split "|" $line)[1]
-      set type (string split "|" $line)[2]
-      set repo (string split "|" $line)[3]
-      set rev (string split "|" $line)[4]
-
-      echo "📦 PIN: $pin"
-      echo "🔧 TYPE: $type"
-      echo "🌐 REPO: $repo"
-      echo "🔖 REV: $rev"
-    ' \
-    --bind "enter:execute-silent(echo (string split \"|\" {} )[4] | wl-copy)+abort" \
-    --bind "ctrl-o:execute-silent(xdg-open https://github.com/(string split \"|\" {} )[3])"
-''
+        echo "📦 PIN: $pin"
+        echo "🔧 TYPE: $type"
+        echo "🌐 REPO: $repo"
+        echo "🔖 REV: $rev"
+      ' \
+      --bind "enter:execute-silent(echo "$(echo {} | cut -d"|" -f4)" | wl-copy)+abort" \
+      --bind "ctrl-o:execute-silent(xdg-open https://github.com/$(echo {} | cut -d"|" -f3))"
+  '';
+in
+pkgs.symlinkJoin {
+  name = "npins-ui";
+  paths = [ script ];
+}

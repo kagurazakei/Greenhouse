@@ -13,8 +13,6 @@
           (pkgs.callPackage (inputs.npins + "/npins.nix") { })
         else
           pkgs.npins;
-      gtk-themes = pkgs.callPackage ../../pkgs/gtk-themes.nix { };
-      qt6ct = pkgs.callPackage ../../pkgs/qt6ct.nix { };
     in
     {
       options = {
@@ -33,10 +31,12 @@
 
         environment.systemPackages = [
           npins
-          gtk-themes
-          qt6ct
         ]
         ++ builtins.attrValues {
+          inherit (zpkgs)
+            qt6ct
+            gtk-themes
+            ;
           inherit (pkgs)
             equibop
             git
