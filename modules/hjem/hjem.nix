@@ -25,6 +25,7 @@ in
         extraModules = [
           inputs.qtengine.hjemModules.default
           inputs.hjem-impure.hjemModules.default
+          inputs.hjem-rum.hjemModules.default
         ];
       };
     };

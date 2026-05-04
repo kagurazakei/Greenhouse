@@ -42,6 +42,7 @@
             git
             gh
             just
+            gnupg
             yazi
             neovim
             nh

@@ -22,6 +22,11 @@
           sandbox-fallback = false;
           download-attempts = 3;
           show-trace = true;
+          trusted-users = [
+            "root"
+            "antonio"
+            "@wheel"
+          ];
           allowed-users = [
             "@wheel"
             "antonio"

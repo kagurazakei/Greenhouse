@@ -54,7 +54,6 @@
           "${pkgs.qt6.qt5compat}/lib/qt6/qml"
           "${pkgs.libsForQt5.qt5.qtgraphicaleffects}/lib/qt-5.15.18/qml"
           "${pkgs.qt6.qtbase}/lib/qt6/qml"
-          "/home/antonio/.config/quickshell/*"
         ];
       };
 

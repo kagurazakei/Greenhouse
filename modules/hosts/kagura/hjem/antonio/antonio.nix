@@ -71,7 +71,7 @@ in
           "kitty/themes/oxocarbon.conf".source = ./_config/kitty/themes/oxocarbon.conf;
           "carapace/carapace.toml".source = ./_config/carapace/carapace.toml;
           "hypr/hyprland.conf".source = utils.mkStoreSymlink ./_config/hyprland/hyprland.conf;
-          "hypr/keybindings.conf".source = utils.mkStoreSymlink ./_config/hyprland/keybinds.conf.conf;
+          "hypr/keybinds.conf".source = utils.mkStoreSymlink ./_config/hyprland/keybinds.conf;
           "hypr/windowRules.conf".source = utils.mkStoreSymlink ./_config/hyprland/windowRules.conf;
           "equibop".source = utils.mkStoreSymlink ./_config/equibop;
           "applications.menu".source = utils.mkStoreSymlink ./_config/menus/applications.menu;
