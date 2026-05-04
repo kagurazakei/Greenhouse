@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  modules.nixos.services_flatpak = {
+  modules.services.flatpak = {
     imports = [
       (inputs.nix-flatpak + "/modules/nixos.nix")
     ];

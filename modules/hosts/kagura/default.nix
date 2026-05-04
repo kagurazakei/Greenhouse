@@ -7,7 +7,15 @@ in
     imports = [
       # self.modules.nixos.misc_steam
       self.modules.programs.dots_fish
+      self.modules.programs.dots_yazi
       self.modules.programs.spicetify
+      self.modules.programs.sysc-greet
+      self.modules.programs.ambxst
+      self.modules.programs.git
+      self.modules.programs.dolphin
+      self.modules.programs.fish
+      self.modules.programs.impermanence
+      self.modules.programs.yazi
       self.modules.nixos.trash
       self.modules.nixos.audio
       self.modules.nixos.bluetooth
@@ -20,14 +28,10 @@ in
       self.modules.nixos.packages
       self.modules.nixos.intel
       self.modules.nixos.nvidia
-      self.modules.programs.sysc-greet
-      self.modules.programs.ambxst
-      self.modules.programs.git
-      self.modules.nixos.scheduler
       self.modules.nixos.kernel
-      self.modules.nixos.flatpak
-      self.modules.nixos.fish
-      self.modules.programs.impermanence
+      self.modules.services.scheduler
+      self.modules.services.openssh
+      self.modules.services.flatpak
       self.modules.nixos.misc_agenix
       self.modules.wm._
       self.modules.wm.hyprland

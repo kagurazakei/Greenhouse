@@ -2,7 +2,7 @@
   pkgs,
 }:
 let
-  sources = import ../+npins;
+  sources = import ../npins;
 in
 pkgs.stdenvNoCC.mkDerivation rec {
   pname = "cat-gtk-themes";

@@ -1,5 +1,5 @@
 let
-  src = import ./+npins;
+  src = import ./npins;
   pkgs = import src.nixpkgs { };
 in
 pkgs.mkShell {

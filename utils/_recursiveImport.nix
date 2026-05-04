@@ -3,10 +3,9 @@
 #
 # [] []?: -> []
 let
-  sources = import ../+npins;
+  sources = import ../npins;
   lib = import "${sources.nixpkgs}/lib";
-  inherit
-    (builtins)
+  inherit (builtins)
     filter
     any
     readFile
@@ -16,32 +15,40 @@ let
     concatLists
     concatMap
     ;
-  inherit
-    (lib)
+  inherit (lib)
     mapAttrsToList
     hasSuffix
     hasPrefix
     filterAttrs
     ;
 
-  recursiveImport = {
-    dirs,
-    excludePrefixedWith ? ["_"],
-  }: let
-    importDir = dir: let
-      filteredAttrs =
-        readDir dir
-        |> (filterAttrs (n: v: !(any (prefix: hasPrefix prefix n) excludePrefixedWith) && (v == "directory" || hasSuffix ".nix" n)));
-      fn = i: type:
-        if type == "directory"
-        then importDir (dir + "/${i}")
-        else if type == "regular"
-        then [(dir + "/${i}")]
-        else [];
+  recursiveImport =
+    {
+      dirs,
+      excludePrefixedWith ? [ "_" ],
+    }:
+    let
+      importDir =
+        dir:
+        let
+          filteredAttrs =
+            readDir dir
+            |> (filterAttrs (
+              n: v:
+              !(any (prefix: hasPrefix prefix n) excludePrefixedWith) && (v == "directory" || hasSuffix ".nix" n)
+            ));
+          fn =
+            i: type:
+            if type == "directory" then
+              importDir (dir + "/${i}")
+            else if type == "regular" then
+              [ (dir + "/${i}") ]
+            else
+              [ ];
+        in
+        concatLists (mapAttrsToList fn filteredAttrs)
+        |> (filter (e: (pathExists e) && (stringLength (readFile e)) > 0));
     in
-      concatLists (mapAttrsToList fn filteredAttrs)
-      |> (filter (e: (pathExists e) && (stringLength (readFile e)) > 0));
-  in
     concatMap importDir dirs;
 in
-  recursiveImport
+recursiveImport

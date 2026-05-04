@@ -32,17 +32,19 @@
         kdePackages.kirigami-addons
         kdePackages.breeze
         libsForQt5.qt5.qtgraphicaleffects
+        qt5.qtbase
+        qt5.qtdeclarative
+        qt5.qtquickcontrols2
+        qt5.qtgraphicaleffects
+        libsForQt5.qqc2-desktop-style
+        libsForQt5.kdeclarative
       ];
-
-      # User-specific packages
       hjem.users.${username}.packages = with pkgs; [
         (catppuccin-papirus-folders.override {
           flavor = "mocha";
           accent = "red";
         })
       ];
-
-      # Environment variables for Qt/QML
       environment.variables = {
         QT_PLUGIN_PATH = [
           "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtPluginPrefix}"
@@ -56,8 +58,6 @@
           "${pkgs.qt6.qtbase}/lib/qt6/qml"
         ];
       };
-
-      # Config files for user (qt6ct, qt5ct, Kvantum)
       hj = {
         xdg.config.files = {
           "qt6ct/qt6ct.conf".source = config.impure-dots + "/qt6ct/qt6ct.conf";

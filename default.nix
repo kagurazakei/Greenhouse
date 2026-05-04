@@ -1,21 +1,32 @@
 let
-  sources = import ./+npins;
+  sources = import ./npins;
   nixpkgs = import sources.nixpkgs { };
   utils = import ./utils;
   inputs = import ./inputs.nix;
   username = "antonio";
-
+  myPackages = import ./pkgs {
+    pkgs = nixpkgs;
+    lib = nixpkgs.lib;
+  };
   modules = {
-    imports = utils.recursiveImport {
-      dirs = [
-        ./modules
-        ./options
+    imports =
+      utils.recursiveImport {
+        dirs = [
+          ./modules
+          ./options
+        ];
+        excludePrefixedWith = [
+          "_"
+          "+"
+        ];
+      }
+      ++ [
+        {
+          _module.args = {
+            zpkgs = myPackages;
+          };
+        }
       ];
-      excludePrefixedWith = [
-        "_"
-        "+"
-      ];
-    };
   };
 
   self =

@@ -4,7 +4,6 @@
 }:
 let
   vixvim = inputs.mnw.lib.wrap { inherit pkgs inputs; } ./_config/neovim;
-  yazi = pkgs.callPackage ./_config/yazi { };
 in
 builtins.attrValues {
   inherit (pkgs) awww waypaper;

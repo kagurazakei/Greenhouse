@@ -13,34 +13,18 @@
       "url": "https://github.com/ryantm/agenix/archive/b027ee29d959fda4b60b57566d64c98a202e0feb.tar.gz",
       "hash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I="
     },
-    "cat-gtk-themes": {
+    "ambxst": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
         "owner": "kagurazakei",
-        "repo": "cat-gtk-themes"
+        "repo": "ambxst"
       },
       "branch": "main",
       "submodules": false,
-      "revision": "6bb6206ec544276fb6f2805023fcff54fc54e8e2",
-      "url": "https://github.com/kagurazakei/cat-gtk-themes/archive/6bb6206ec544276fb6f2805023fcff54fc54e8e2.tar.gz",
-      "hash": "sha256-wtt4IMl6kFRfkquGCepjL6oZq5qZbhJXFjPicOrlo6I="
-    },
-    "ambxst": {
-      "type": "GitRelease",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Axenide",
-        "repo": "Ambxst"
-      },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
-      "submodules": false,
-      "version": "1.1.4",
-      "revision": "a2faad79618987c36cca2e4fb790e5c9f0fd7e22",
-      "url": "https://api.github.com/repos/Axenide/Ambxst/tarball/refs/tags/1.1.4",
-      "hash": "sha256-Nc6KTQxBWnVKxxOTHHZxPUk8stQBnVhdqSN+QZHQYlw="
+      "revision": "457b5026ee27ca0f6a6b93234759f67ec5b0b1a0",
+      "url": "https://github.com/kagurazakei/ambxst/archive/457b5026ee27ca0f6a6b93234759f67ec5b0b1a0.tar.gz",
+      "hash": "sha256-twFmO+JIaKs52wWoq/ZygrBkoAelG/LINHUH2tHk60s="
     },
     "blink-cmp": {
       "type": "Git",
@@ -54,6 +38,19 @@
       "revision": "80f5dd3f11049f1c3a87557718d4e55556a0e3f5",
       "url": "https://github.com/saghen/blink.cmp/archive/80f5dd3f11049f1c3a87557718d4e55556a0e3f5.tar.gz",
       "hash": "sha256-H0Xik07Lq5lRvNikfe5c2d0KU9+QWLmW2L0HiQO5AUs="
+    },
+    "cat-gtk-themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "cat-gtk-themes"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6bb6206ec544276fb6f2805023fcff54fc54e8e2",
+      "url": "https://github.com/kagurazakei/cat-gtk-themes/archive/6bb6206ec544276fb6f2805023fcff54fc54e8e2.tar.gz",
+      "hash": "sha256-wtt4IMl6kFRfkquGCepjL6oZq5qZbhJXFjPicOrlo6I="
     },
     "catp-bat": {
       "type": "Git",

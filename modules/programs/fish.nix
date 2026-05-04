@@ -207,6 +207,8 @@
           nix-your-shell
           any-nix-shell
           stylua
+          atuin
+          starship
           dwt1-shell-color-scripts
           ;
       };

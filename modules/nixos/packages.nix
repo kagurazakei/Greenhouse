@@ -1,11 +1,10 @@
-{ inputs, ... }:
+{ inputs, zpkgs, ... }:
 {
   modules.nixos.packages =
     {
       pkgs,
       lib,
       config,
-      zpkgs,
       ...
     }:
     let

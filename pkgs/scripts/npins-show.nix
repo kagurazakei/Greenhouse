@@ -2,7 +2,8 @@
   writers,
   writeAwk,
   npins,
-}: let
+}:
+let
   betterShow = writeAwk "betterShow" ''
     BEGIN { print "PIN FROZEN REPOSITORY REVISION" }
     /^\w.*:/ { split($1, BUF, ":"); PIN=BUF[1]; REPO="UNKNOWN"; REVISION="UNKNOWN";}
@@ -11,6 +12,6 @@
     /frozen:/ { print PIN, $2, REPO, REVISION }
   '';
 in
-  writers.writeFishBin "npins-show" ''
-    ${npins}/bin/npins show | ${betterShow} | column -t
-  ''
+writers.writeFishBin "npins-show" ''
+  ${npins}/bin/npins show | ${betterShow} | column -t
+''

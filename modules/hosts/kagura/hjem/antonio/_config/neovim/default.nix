@@ -90,7 +90,6 @@ in
       }
       ++ [
         pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-        pkgs.vimPlugins.nvim-treesitter-textobjects
         pkgs.vimPlugins.nvim-treesitter-context
 
       ];

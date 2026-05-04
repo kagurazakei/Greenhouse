@@ -17,6 +17,8 @@ yazi.override {
       wl-clipboard
       starship
       lazygit
+      full-border
+      eza-preview
       ;
   };
   initLua = ./init.lua;
