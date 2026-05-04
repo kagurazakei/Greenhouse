@@ -6,8 +6,8 @@ in
   modules.hosts.${hostname} = {
     imports = [
       # self.modules.nixos.misc_steam
-      self.modules.dots.fish
-      self.modules.nixos.spicetify
+      self.modules.programs.dots_fish
+      self.modules.programs.spicetify
       self.modules.nixos.trash
       self.modules.nixos.audio
       self.modules.nixos.bluetooth
@@ -20,13 +20,14 @@ in
       self.modules.nixos.packages
       self.modules.nixos.intel
       self.modules.nixos.nvidia
-      self.modules.nixos.sysc-greet
-      self.modules.nixos.ambxst
+      self.modules.programs.sysc-greet
+      self.modules.programs.ambxst
+      self.modules.programs.git
       self.modules.nixos.scheduler
       self.modules.nixos.kernel
       self.modules.nixos.flatpak
       self.modules.nixos.fish
-      self.modules.nixos.impermanence
+      self.modules.programs.impermanence
       self.modules.nixos.misc_agenix
       self.modules.wm._
       self.modules.wm.hyprland

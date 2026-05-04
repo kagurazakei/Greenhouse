@@ -1,5 +1,5 @@
 {
-  azalea.modules.git =
+  modules.programs.git =
     {
       config,
       pkgs,

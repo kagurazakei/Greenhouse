@@ -15,7 +15,7 @@
     "fish/conf.d" = "/fish/conf.d";
     "fish/rosepinelscolors" = "/fish/rosepinelscolors";
   };
-  modules.nixos.programs_fish =
+  modules.programs.fish =
     {
       pkgs,
       lib,
