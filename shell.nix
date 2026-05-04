@@ -3,7 +3,7 @@ let
   pkgs = import src.nixpkgs { };
 in
 pkgs.mkShell {
-  NPINS_DIRECTORY = "+npins";
+  NPINS_DIRECTORY = "npins";
   IMPURE = "true";
 
   buildInputs = [

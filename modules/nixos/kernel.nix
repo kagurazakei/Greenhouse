@@ -38,7 +38,7 @@
           if config.networking.hostName == "hana" then
             pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto
           else
-            pkgs.linuxPackages_zen;
+            pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
         consoleLogLevel = 0;
         kernelParams = [
           "quiet"

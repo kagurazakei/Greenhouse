@@ -4,6 +4,7 @@
 }:
 let
   vixvim = inputs.mnw.lib.wrap { inherit pkgs inputs; } ./_config/neovim;
+
 in
 builtins.attrValues {
   inherit (pkgs) awww waypaper;
@@ -36,7 +37,6 @@ builtins.attrValues {
     ripgrep
     fzf
     ouch
-    equibop
     kitty
     wl-clipboard
     cliphist
@@ -82,7 +82,6 @@ builtins.attrValues {
     ;
   inherit (pkgs) foot libsixel;
   inherit (pkgs.kdePackages)
-    dolphin
     ark
     breeze
     qtsvg

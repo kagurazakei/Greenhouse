@@ -7,6 +7,7 @@ in
     imports = [
       # self.modules.nixos.misc_steam
       self.modules.programs.dots_fish
+      self.modules.programs.dots_hyprland
       self.modules.programs.dots_yazi
       self.modules.programs.spicetify
       self.modules.programs.sysc-greet
@@ -29,6 +30,7 @@ in
       self.modules.nixos.intel
       self.modules.nixos.nvidia
       self.modules.nixos.kernel
+      self.modules.nixos.security
       self.modules.services.scheduler
       self.modules.services.openssh
       self.modules.services.flatpak

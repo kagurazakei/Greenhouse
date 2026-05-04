@@ -15,6 +15,7 @@
           pkgs.npins;
       gtk-themes = pkgs.callPackage ../../pkgs/gtk-themes.nix { };
       qt6ct = pkgs.callPackage ../../pkgs/qt6ct.nix { };
+      equibop = pkgs.callPackage ../../pkgs/equibop/package.nix { };
     in
     {
       options = {
@@ -35,6 +36,7 @@
           npins
           gtk-themes
           qt6ct
+          equibop
         ]
         ++ builtins.attrValues {
           inherit (pkgs)

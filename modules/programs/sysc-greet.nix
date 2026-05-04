@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 {
   modules.programs.sysc-greet =
     {
@@ -19,8 +19,12 @@
           "man:systemd-getty-generator(8)"
         ];
         conflicts = [ "console-getty.service" ];
-        wantedBy = [ "multi-user.target" ];
         restartIfChanged = false;
+        unitConfig.DefaultDependencies = false;
+        wantedBy = [
+          "multi-user.target"
+          "getty.target"
+        ];
 
         serviceConfig = {
           Type = "idle";
@@ -41,5 +45,6 @@
 
         enable = true;
       };
+      services.getty.autologinUser = lib.mkForce null;
     };
 }
