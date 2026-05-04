@@ -2,51 +2,53 @@
   self,
   inputs,
   ...
-}: {
-  modules.wm.niri = {
-    lib,
-    pkgs,
-    config,
-    ...
-  }: {
-    imports = [self.modules.wm._];
+}:
+{
+  modules.wm.niri =
+    {
+      lib,
+      pkgs,
+      config,
+      ...
+    }:
+    {
+      imports = [ self.modules.wm._ ];
 
-    options = {
-      wm.niri.enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
+      options = {
+        wm.niri.enable = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+        };
+        wm.niri.buildFromSrc = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+        };
       };
-      wm.niri.buildFromSrc = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-      };
-    };
 
-    config = (lib.mkIf config.wm.niri.enable) {
-      programs.niri =
-        {
+      config = (lib.mkIf config.wm.niri.enable) {
+        programs.niri = {
           enable = true;
           useNautilus = false;
         }
         // lib.optionalAttrs (config.wm.niri.buildFromSrc) {
           package = (inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.default).overrideAttrs (o: {
-            doCheck = false; #iynaix better not lie
+            doCheck = false; # iynaix better not lie
           });
         };
 
-      xdg.portal = {
-        config.niri = {
-          "org.freedesktop.impl.portal.FileChooser" = lib.mkForce "kde";
-          # "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-          # "org.freedesktop.portal.ScreenCast" = "gnome";
+        xdg.portal = {
+          config.niri = {
+            "org.freedesktop.impl.portal.FileChooser" = lib.mkForce "kde";
+            # "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+            # "org.freedesktop.portal.ScreenCast" = "gnome";
+          };
         };
-      };
 
-      environment.systemPackages = [
-        pkgs.fuzzel
-        pkgs.alacritty
-        pkgs.xwayland-satellite
-      ];
+        environment.systemPackages = [
+          pkgs.fuzzel
+          pkgs.alacritty
+          pkgs.xwayland-satellite
+        ];
+      };
     };
-  };
 }

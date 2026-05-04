@@ -1,37 +1,46 @@
-{inputs, ...}: {
-  modules.nixos.packages = {
-    pkgs,
-    lib,
-    config,
-    ...
-  }: let
-    npins =
-      if (config.nixos.packages.npins.buildFromSrc)
-      then (pkgs.callPackage (inputs.npins + "/npins.nix") {})
-      else pkgs.npins;
-  in {
-    options = {
-      nixos.packages.npins.buildFromSrc = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
+{ inputs, ... }:
+{
+  modules.nixos.packages =
+    {
+      pkgs,
+      lib,
+      config,
+      zpkgs,
+      ...
+    }:
+    let
+      npins =
+        if (config.nixos.packages.npins.buildFromSrc) then
+          (pkgs.callPackage (inputs.npins + "/npins.nix") { })
+        else
+          pkgs.npins;
+      gtk-themes = pkgs.callPackage ../../pkgs/gtk-themes.nix { };
+      qt6ct = pkgs.callPackage ../../pkgs/qt6ct.nix { };
+    in
+    {
+      options = {
+        nixos.packages.npins.buildFromSrc = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+        };
       };
-    };
-    config = {
-      programs.direnv = {
-        enable = true;
-        loadInNixShell = true;
-        nix-direnv.enable = true;
-        enableFishIntegration = true;
-      };
+      config = {
+        programs.direnv = {
+          enable = true;
+          loadInNixShell = true;
+          nix-direnv.enable = true;
+          enableFishIntegration = true;
+        };
 
-      environment.systemPackages =
-        [
+        environment.systemPackages = [
           npins
+          gtk-themes
+          qt6ct
         ]
         ++ builtins.attrValues {
-          inherit
-            (pkgs)
+          inherit (pkgs)
             git
+            gh
             just
             yazi
             neovim
@@ -39,10 +48,13 @@
             wl-clipboard
             cliphist
             libnotify
-            firefox
+            librewolf
             cachix
+            gtk-engine-murrine
+            rose-pine-icon-theme
+            rose-pine-gtk-theme
             ;
         };
+      };
     };
-  };
 }

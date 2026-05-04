@@ -10,12 +10,12 @@ builtins.attrValues {
   inherit (pkgs) awww waypaper;
   inherit (pkgs)
     inkscape
-    firefox
     fuzzel
     swappy
     viewnior
-    libreoffice
     git
+    komikku
+    nwg-look
     ;
   inherit (pkgs)
     btop
@@ -37,16 +37,51 @@ builtins.attrValues {
     ripgrep
     fzf
     ouch
+    equibop
+    kitty
+    wl-clipboard
+    cliphist
+    mpvpaper
+    findutils
+    gtkmm4
+    qimgv
+    brightnessctl
+    duf
+    lazygit
+    gpu-screen-recorder
     ;
+
+  inherit (pkgs) trashy wl-screenrec;
   inherit (pkgs)
+
     wtype
     socat
     grim
     slurp
     imagemagick
     resvg
+    noctalia-shell
     ;
 
+  inherit (pkgs)
+    libnotify
+    imv
+    wayfreeze
+    networkmanagerapplet
+    ;
+  inherit (pkgs)
+    nitch
+    htop
+    ;
+  inherit (pkgs)
+    hyprsunset
+    ripdrag
+    seahorse
+    app2unit
+    ollama
+    proton-vpn
+    ;
+  inherit (pkgs) foot libsixel;
   inherit (pkgs.kdePackages)
     dolphin
     ark
@@ -63,16 +98,5 @@ builtins.attrValues {
   (pkgs.wrapOBS {
     plugins = [ pkgs.obs-studio-plugins.obs-pipewire-audio-capture ];
   })
-  #surely this can be improved
-  (pkgs.callPackage (import inputs.quickshell) {
-    withI3 = false;
-    withX11 = false;
-  })
-  inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default # use this
-
-  (pkgs.vesktop.overrideAttrs (oldAttrs: {
-    desktopItems = map (item: item.override { icon = "discord"; }) oldAttrs.desktopItems;
-  }))
-
-  yazi
+  vixvim
 ]

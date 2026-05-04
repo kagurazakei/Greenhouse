@@ -1,9 +1,9 @@
+{ inputs, ... }:
 {
   modules.nixos.kernel =
     {
       pkgs,
       config,
-      inputs,
       ...
     }:
     {
@@ -38,7 +38,7 @@
           if config.networking.hostName == "hana" then
             pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto
           else
-            pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+            pkgs.linuxPackages_zen;
         consoleLogLevel = 0;
         kernelParams = [
           "quiet"

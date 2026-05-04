@@ -3,31 +3,38 @@
   lib,
   inputs,
   ...
-}: let
+}:
+let
   fs = lib.fileset;
-in {
-  aliases = ["vim"];
+in
+{
+  aliases = [ "vim" ];
   initLua = ''
-    require("vismorf")
+    require("keymaps")
+    require("options")
+    require("autocmds")
+    require("diagnostic")
+    require("lsp")
+    require("lz.n").load("plugins")
+    vim.cmd.colorscheme("base16-tokyodark-terminal")
   '';
-  # neovim = inputs.neovimNightlyOut.packages.${pkgs.stdenv.hostPlatform.system}.default;
-  extraBinPath =
-    [
-      pkgs.fzf
-      pkgs.ripgrep
-      pkgs.fd
-    ]
-    ++ [
-      pkgs.alejandra
-      pkgs.nixd
-      pkgs.stylua
-      pkgs.lua-language-server
-      pkgs.shfmt
-      pkgs.inotify-tools
-      pkgs.kdePackages.qtdeclarative
-      pkgs.llvmPackages.clang-tools
-      pkgs.neocmakelsp
-    ];
+  extraBinPath = [
+    pkgs.fzf
+    pkgs.ripgrep
+    pkgs.fd
+  ]
+  ++ [
+    pkgs.alejandra
+    pkgs.nixd
+    pkgs.nixfmt
+    pkgs.stylua
+    pkgs.lua-language-server
+    pkgs.shfmt
+    pkgs.inotify-tools
+    pkgs.kdePackages.qtdeclarative
+    pkgs.llvmPackages.clang-tools
+    pkgs.neocmakelsp
+  ];
   enable = true;
   plugins = {
     dev.myConfig = {
@@ -36,18 +43,15 @@ in {
         fileset = fs.fromSource (lib.sources.cleanSource ./nvim);
       };
 
-      impure = "/home/vsmrf/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim";
+      impure = "/home/antonio/Greenhouse/modules/hosts/kagura/hjem/vsmrf/_config/neovim/nvim";
     };
     #todo: no idea what this is
-    startAttrs = {
-      nvim-treesitter = null;
-      promise-async = null;
-    };
+    startAttrs = inputs.mnw.lib.npinsToPluginsAttrs pkgs ./start-plugins.json;
+    optAttrs = inputs.mnw.lib.npinsToPluginsAttrs pkgs ./opt-plugins.json;
     start =
       builtins.attrValues {
-        inherit (pkgs.vimPlugins) lze lzextras;
-        inherit
-          (pkgs.vimPlugins)
+        # inherit (pkgs.vimPlugins) lze lzextras;
+        inherit (pkgs.vimPlugins)
           nvim-web-devicons
           plenary-nvim
           snacks-nvim
@@ -68,22 +72,20 @@ in {
     opt =
       builtins.attrValues {
         inherit (pkgs.vimPlugins) conform-nvim;
-        inherit (pkgs.vimPlugins) friendly-snippets lspkind-nvim;
-        inherit (pkgs.vimPlugins) nvim-ufo promise-async;
+        inherit (pkgs.vimPlugins) lspkind-nvim;
+        inherit (pkgs.vimPlugins) nvim-ufo;
 
-        inherit
-          (pkgs.vimPlugins)
-          gitsigns-nvim
-          bufferline-nvim
+        inherit (pkgs.vimPlugins)
           nvim-cokeline
-          indent-blankline-nvim
           mini-animate
           fzf-lua
           flash-nvim
-          nvim-autopairs
           nvim-surround
-          yazi-nvim
           bufjump-nvim
+          blink-cmp
+          blink-pairs
+          base16-nvim
+          cord-nvim
           ;
       }
       ++ [
@@ -91,18 +93,6 @@ in {
         pkgs.vimPlugins.nvim-treesitter-textobjects
         pkgs.vimPlugins.nvim-treesitter-context
 
-        #todo: remove this after upstream is merged
-        (
-          pkgs.vimPlugins.blink-cmp.overrideAttrs
-          (_: _: {
-            src = pkgs.fetchFromGitHub {
-              owner = "Saghen";
-              repo = "blink.cmp";
-              rev = inputs.blink-cmp.revision;
-              hash = inputs.blink-cmp.hash;
-            };
-          })
-        )
       ];
   };
 }

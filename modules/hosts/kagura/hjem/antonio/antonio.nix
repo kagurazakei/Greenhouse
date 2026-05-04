@@ -6,13 +6,19 @@
 }:
 let
   username = "antonio";
+  dots = "${./_config}";
 in
 {
   modules.hjem.${username} =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
+      nixpkgs.overlays = [
+        inputs.neovim-nightly.overlays.default
+      ];
       imports = [
         self.modules.hjem.theming
+        (lib.mkAliasOptionModule [ "hj" ] [ "hjem" "users" "${username}" ])
+        (lib.mkAliasOptionModule [ "impure-dots" ] [ "hjem" "users" "${username}" "impure" "dotsDir" ])
       ];
       theming = {
         inherit username;
@@ -45,6 +51,11 @@ in
 
       hjem.users.${username} = {
         clobberFiles = true;
+        impure = {
+          enable = true;
+          dotsDir = dots;
+          dotsDirImpure = "/home/antonio/Greenhouse/modules/hosts/kagura/hjem/antonio/_config";
+        };
         packages = import ./_packages.nix { inherit inputs pkgs; };
         xdg.config.files = {
           "fuzzel/fuzzel.ini".source = ./_config/fuzzel/fuzzel.ini;
@@ -53,10 +64,17 @@ in
           "ghostty".source = utils.mkStoreSymlink ./_config/ghostty;
           "fastfetch".source = ./_config/fastfetch;
           "git".source = ./_config/git;
-          "fish/config.fish".source = utils.mkStoreSymlink ./_config/fish/config.fish;
-          "fish/functions".source = utils.mkStoreSymlink ./_config/fish/functions;
           "swappy/config".source = ./_config/swappy/config;
           "bottom".source = ./_config/bottom;
+          "btop".source = utils.mkStoreSymlink ./_config/btop;
+          "kitty/kitty.conf".source = ./_config/kitty/kagura.conf;
+          "kitty/themes/oxocarbon.conf".source = ./_config/kitty/themes/oxocarbon.conf;
+          "carapace/carapace.toml".source = ./_config/carapace/carapace.toml;
+          "hypr/hyprland.conf".source = utils.mkStoreSymlink ./_config/hyprland/hyprland.conf;
+          "hypr/keybindings.conf".source = utils.mkStoreSymlink ./_config/hyprland/keybinds.conf.conf;
+          "hypr/windowRules.conf".source = utils.mkStoreSymlink ./_config/hyprland/windowRules.conf;
+          "equibop".source = utils.mkStoreSymlink ./_config/equibop;
+          "applications.menu".source = utils.mkStoreSymlink ./_config/menus/applications.menu;
         };
       };
     };

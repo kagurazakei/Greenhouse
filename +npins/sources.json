@@ -1,20 +1,46 @@
 {
   "pins": {
+    "agenix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ryantm",
+        "repo": "agenix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "b027ee29d959fda4b60b57566d64c98a202e0feb",
+      "url": "https://github.com/ryantm/agenix/archive/b027ee29d959fda4b60b57566d64c98a202e0feb.tar.gz",
+      "hash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I="
+    },
+    "cat-gtk-themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "cat-gtk-themes"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6bb6206ec544276fb6f2805023fcff54fc54e8e2",
+      "url": "https://github.com/kagurazakei/cat-gtk-themes/archive/6bb6206ec544276fb6f2805023fcff54fc54e8e2.tar.gz",
+      "hash": "sha256-wtt4IMl6kFRfkquGCepjL6oZq5qZbhJXFjPicOrlo6I="
+    },
     "ambxst": {
       "type": "GitRelease",
       "repository": {
         "type": "GitHub",
-        "owner": "kagurazakei",
-        "repo": "ambxst"
+        "owner": "Axenide",
+        "repo": "Ambxst"
       },
       "pre_releases": false,
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "1.0.12",
-      "revision": "59edec9a0430eb2f679697f4a817a1f44ffcfb8b",
-      "url": "https://api.github.com/repos/kagurazakei/ambxst/tarball/refs/tags/1.0.12",
-      "hash": "sha256-SONu9NiNr0gaLC6rMt3x5x1L6DwSUuGJesizS7Ej2eo="
+      "version": "1.1.4",
+      "revision": "a2faad79618987c36cca2e4fb790e5c9f0fd7e22",
+      "url": "https://api.github.com/repos/Axenide/Ambxst/tarball/refs/tags/1.1.4",
+      "hash": "sha256-Nc6KTQxBWnVKxxOTHHZxPUk8stQBnVhdqSN+QZHQYlw="
     },
     "blink-cmp": {
       "type": "Git",
@@ -25,9 +51,48 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "c573a15a62bd0bfd4006ee0849b24f5404395500",
-      "url": "https://github.com/saghen/blink.cmp/archive/c573a15a62bd0bfd4006ee0849b24f5404395500.tar.gz",
-      "hash": "sha256-9NVRDpv2aalLAsINMQcBaMuhunf3M4E9PG1q8YKqWo0="
+      "revision": "80f5dd3f11049f1c3a87557718d4e55556a0e3f5",
+      "url": "https://github.com/saghen/blink.cmp/archive/80f5dd3f11049f1c3a87557718d4e55556a0e3f5.tar.gz",
+      "hash": "sha256-H0Xik07Lq5lRvNikfe5c2d0KU9+QWLmW2L0HiQO5AUs="
+    },
+    "catp-bat": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "bat"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6810349b28055dce54076712fc05fc68da4b8ec0",
+      "url": "https://github.com/catppuccin/bat/archive/6810349b28055dce54076712fc05fc68da4b8ec0.tar.gz",
+      "hash": "sha256-lJapSgRVENTrbmpVyn+UQabC9fpV1G1e+CdlJ090uvg="
+    },
+    "chaotic": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "lonerOrz",
+        "repo": "nyx-loner"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "a81252dffc4c04ac7e8aa93595e0256dca40af00",
+      "url": "https://github.com/lonerOrz/nyx-loner/archive/a81252dffc4c04ac7e8aa93595e0256dca40af00.tar.gz",
+      "hash": "sha256-7sFNtEl36c8vo50CGn1dH4ewBT9kmRIgTYYT4JLuf6o="
+    },
+    "fish": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "fish"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "bb23e27209365aa43ce35f946d7a4d5df5533e22",
+      "url": "https://github.com/kagurazakei/fish/archive/bb23e27209365aa43ce35f946d7a4d5df5533e22.tar.gz",
+      "hash": "sha256-vH9U1F0FkxM/5mzEUV4D0PveSTiI5ZPZlEv2BJKnVOE="
     },
     "flake-inputs": {
       "type": "GitRelease",
@@ -54,9 +119,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f8a0a45963010e5cb3baa8069dbcc07a60c5d26d",
-      "url": "https://github.com/ghostty-org/ghostty/archive/f8a0a45963010e5cb3baa8069dbcc07a60c5d26d.tar.gz",
-      "hash": "sha256-JmIVbdjtMFcGEJ7H883zvMs/TxNVyi7zFWc0cbB3q3M="
+      "revision": "1547dd667ab6d1f4ebcdc7282adc54c95752ee67",
+      "url": "https://github.com/ghostty-org/ghostty/archive/1547dd667ab6d1f4ebcdc7282adc54c95752ee67.tar.gz",
+      "hash": "sha256-dZFc+8az7BUIs8+v45XqNnY5G6oXEwVfVVHZQuATSGQ="
     },
     "hjem": {
       "type": "Git",
@@ -67,9 +132,35 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "63661135b11cf9461683fa1f65208263b545f5e0",
-      "url": "https://github.com/feel-co/hjem/archive/63661135b11cf9461683fa1f65208263b545f5e0.tar.gz",
-      "hash": "sha256-ffHf1XwyaEUfd49i2hDdhkjJcZzBJ36e2Qiex0UVgV8="
+      "revision": "ab977051adce0bf9f7c1032327e72f0febda6f7b",
+      "url": "https://github.com/feel-co/hjem/archive/ab977051adce0bf9f7c1032327e72f0febda6f7b.tar.gz",
+      "hash": "sha256-gaHRkPaGAAjc6D4sZ+/haEKMJGO79tu4ROBlyOjXuco="
+    },
+    "hjem-impure": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Rexcrazy804",
+        "repo": "hjem-impure"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "1a65894ec4b6b80591a7ec121ee4bb52ca772ebf",
+      "url": "https://github.com/Rexcrazy804/hjem-impure/archive/1a65894ec4b6b80591a7ec121ee4bb52ca772ebf.tar.gz",
+      "hash": "sha256-lECETmsnVngKI5qZYsygEAyFQVSvZNxzDqOWZoxK4mQ="
+    },
+    "hjem-rum": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "snugnug",
+        "repo": "hjem-rum"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "fdfb0cd3d735116a0356ce5a856059669a27ae96",
+      "url": "https://github.com/snugnug/hjem-rum/archive/fdfb0cd3d735116a0356ce5a856059669a27ae96.tar.gz",
+      "hash": "sha256-n+hYOHRF5/DWuyd1su/DCD3iFBZ8Np4l0ss9NNqUSiI="
     },
     "hyprland": {
       "type": "Git",
@@ -80,9 +171,22 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "73f48077965d5b895a731c34ab648f73fdb7b2ce",
-      "url": "https://github.com/hyprwm/Hyprland/archive/73f48077965d5b895a731c34ab648f73fdb7b2ce.tar.gz",
-      "hash": "sha256-r3wsMIWSPbT6EEReEyVJ7sULgddOTitn8O0w7mGCjVk="
+      "revision": "21fa9b2ee27227c964fdeb8090d98255edb89bec",
+      "url": "https://github.com/hyprwm/Hyprland/archive/21fa9b2ee27227c964fdeb8090d98255edb89bec.tar.gz",
+      "hash": "sha256-7wJkNlQ9Sc2FwFRc6O7Kmq32I7rk7H8pttU4tVfVqjw="
+    },
+    "impermanence": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "impermanence"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "7b1d382faf603b6d264f58627330f9faa5cba149",
+      "url": "https://github.com/nix-community/impermanence/archive/7b1d382faf603b6d264f58627330f9faa5cba149.tar.gz",
+      "hash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y="
     },
     "mnw": {
       "type": "Git",
@@ -93,9 +197,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "68a22f62ca7623fcb700d4ebf225bd91125c773e",
-      "url": "https://github.com/Gerg-L/mnw/archive/68a22f62ca7623fcb700d4ebf225bd91125c773e.tar.gz",
-      "hash": "sha256-iQ45IBZXKgMpV9x6RxZfGm6hzRzfVpKo7gWV0VHLmlE="
+      "revision": "54f7ad6e34f4e44e0260a5140af7726a4792dece",
+      "url": "https://github.com/Gerg-L/mnw/archive/54f7ad6e34f4e44e0260a5140af7726a4792dece.tar.gz",
+      "hash": "sha256-AHM3wNuC5zzGaygnovHqFUI0YJR1Jj7ZgK9D9m7cgMQ="
     },
     "neovim-nightly": {
       "type": "Git",
@@ -106,9 +210,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "9001416dc5d0ca24c8e4b5a44bfe7cd6fbeb1dd1",
-      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/9001416dc5d0ca24c8e4b5a44bfe7cd6fbeb1dd1.tar.gz",
-      "hash": "sha256-LocQzkSjVS4G0AKMBiEIVdBKCNTMZXQFjQMWFId4Jpg="
+      "revision": "06974a7b4913f950c67eaa398ac0c5781e29fe9c",
+      "url": "https://github.com/nix-community/neovim-nightly-overlay/archive/06974a7b4913f950c67eaa398ac0c5781e29fe9c.tar.gz",
+      "hash": "sha256-GyUvw2G212P0nDfUh6/4fPfZK1UBJak1MYr6If8b7H4="
     },
     "niri": {
       "type": "Git",
@@ -119,9 +223,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "b07bde3ee82dd73115e6b949e4f3f63695da35ea",
-      "url": "https://github.com/yalter/niri/archive/b07bde3ee82dd73115e6b949e4f3f63695da35ea.tar.gz",
-      "hash": "sha256-3bwx4WqCB06yfQIGB+OgIckOkEDyKxiTD5pOo4Xz2rI="
+      "revision": "1f07cffa9f355298a31d7efe1b400ede93a97728",
+      "url": "https://github.com/yalter/niri/archive/1f07cffa9f355298a31d7efe1b400ede93a97728.tar.gz",
+      "hash": "sha256-1TlpdT0WYyBGtUS3PH4oXHUmdno2EUh2TfHadK2BmJo="
     },
     "nix-cachyos-kernel": {
       "type": "Git",
@@ -135,6 +239,19 @@
       "revision": "bdf1cec8001039a6c6c9a35c27bc56a9f5f03143",
       "url": "https://github.com/xddxdd/nix-cachyos-kernel/archive/bdf1cec8001039a6c6c9a35c27bc56a9f5f03143.tar.gz",
       "hash": "sha256-E0jXK/AZpjimObFRYHhQ9uMfc6KRdfKn/yVCfkQnd0A="
+    },
+    "nix-flatpak": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "gmodena",
+        "repo": "nix-flatpak"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "22a3adbe7c5c8c8a10a635d32c9ef7fc01a6e4b8",
+      "url": "https://github.com/gmodena/nix-flatpak/archive/22a3adbe7c5c8c8a10a635d32c9ef7fc01a6e4b8.tar.gz",
+      "hash": "sha256-6gkfl9y3+ti0Z6dgby8/R4/DRT8sWU0I0TLCIxwWtjk="
     },
     "nixos-hardware": {
       "type": "Git",
@@ -157,11 +274,11 @@
         "owner": "nixos",
         "repo": "nixpkgs"
       },
-      "branch": "nixpkgs-unstable",
+      "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "13043924aaa7375ce482ebe2494338e058282925",
-      "url": "https://github.com/nixos/nixpkgs/archive/13043924aaa7375ce482ebe2494338e058282925.tar.gz",
-      "hash": "sha256-nwASzrRDD1JBEu/o8ekKYEXm/oJW6EMCzCRdrwcLe90="
+      "revision": "b12141ef619e0a9c1c84dc8c684040326f27cdcc",
+      "url": "https://github.com/nixos/nixpkgs/archive/b12141ef619e0a9c1c84dc8c684040326f27cdcc.tar.gz",
+      "hash": "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24="
     },
     "npins": {
       "type": "Git",
@@ -172,9 +289,35 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "c664916b48964bdb442f8a1529d3a10c168ab195",
-      "url": "https://github.com/andir/npins/archive/c664916b48964bdb442f8a1529d3a10c168ab195.tar.gz",
-      "hash": "sha256-qoVRA4osHAXC+g+C3h/OjEm9ODRwCR4w9xOgjASjwOM="
+      "revision": "4c33cb1ca91e226cafd18d1d9295c6da2d1318e3",
+      "url": "https://github.com/andir/npins/archive/4c33cb1ca91e226cafd18d1d9295c6da2d1318e3.tar.gz",
+      "hash": "sha256-E37++j2olEhxtyFRriErJNwuZow57ZboykfTLneNjus="
+    },
+    "nvim-flake": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "nvim-flake"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "d92469613b234fa050b2500b21ce3db7e3fe2ac7",
+      "url": "https://github.com/kagurazakei/nvim-flake/archive/d92469613b234fa050b2500b21ce3db7e3fe2ac7.tar.gz",
+      "hash": "sha256-TUsYT3FILqZhwE/G9iFXdhjSy0UTSE9cGM1oGm8wBFg="
+    },
+    "nyx-loner": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "lonerOrz",
+        "repo": "nyx-loner"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "a81252dffc4c04ac7e8aa93595e0256dca40af00",
+      "url": "https://github.com/lonerOrz/nyx-loner/archive/a81252dffc4c04ac7e8aa93595e0256dca40af00.tar.gz",
+      "hash": "sha256-7sFNtEl36c8vo50CGn1dH4ewBT9kmRIgTYYT4JLuf6o="
     },
     "qtengine": {
       "type": "Git",
@@ -190,17 +333,73 @@
       "hash": "sha256-aJ5ZdIX10nmhzMLjP6QMuFJHvljJD+xcojuKZjPkr70="
     },
     "quickshell": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "Forgejo",
+        "server": "https://git.outfoxxed.me/",
+        "owner": "quickshell",
+        "repo": "quickshell"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.2.1",
+      "revision": "a1a150fab00a93ea983aaca5df55304bc837f51b",
+      "url": "https://git.outfoxxed.me/api/v1/repos/quickshell/quickshell/archive/v0.2.1.tar.gz",
+      "hash": "sha256-e++Ogy91Sv7gGLMdAqZaBzbH/UmPWZ4GAt7VDCA66aU="
+    },
+    "rosep-fish": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "quickshell-mirror",
-        "repo": "quickshell"
+        "owner": "rose-pine",
+        "repo": "fish"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "127a990e5ad4688118c950123787fb0686afa4c8",
+      "url": "https://github.com/rose-pine/fish/archive/127a990e5ad4688118c950123787fb0686afa4c8.tar.gz",
+      "hash": "sha256-3heI6nhItw5WfKGQT1FRQKfv+lONyn+DzwYjYqJjzLE="
+    },
+    "rosep-foot": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "rose-pine",
+        "repo": "foot"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "4c897ddad2fef9ebc6ec2e7ebc80ea71337edd07",
+      "url": "https://github.com/rose-pine/foot/archive/4c897ddad2fef9ebc6ec2e7ebc80ea71337edd07.tar.gz",
+      "hash": "sha256-rZm3d7dN4M2cHMx1SrrSWfCKn3JHUVQ+EsH5FvOww4I="
+    },
+    "shizuruPkgs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "shizuruPkgs"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "fc1232e4d60b34b52addb7f20e3fe689c5d7451e",
+      "url": "https://github.com/kagurazakei/shizuruPkgs/archive/fc1232e4d60b34b52addb7f20e3fe689c5d7451e.tar.gz",
+      "hash": "sha256-6bL54LqB9oCjgO6S0BUYEGV3DCp6veSOKaYUfS+Wuoo="
+    },
+    "spicetify-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix"
       },
       "branch": "master",
       "submodules": false,
-      "revision": "783c953987dc56ff0601abe6845ed96f1d00495a",
-      "url": "https://github.com/quickshell-mirror/quickshell/archive/783c953987dc56ff0601abe6845ed96f1d00495a.tar.gz",
-      "hash": "sha256-lLbV66V3RMNp1l8/UelmR4YzoJ5ONtgvEtiUMJATH/o="
+      "revision": "d0e921cc48aab6137d203a3eab19601dc2bdc0c3",
+      "url": "https://github.com/Gerg-L/spicetify-nix/archive/d0e921cc48aab6137d203a3eab19601dc2bdc0c3.tar.gz",
+      "hash": "sha256-XHCvLGu/bEEZRzXVKFu1i+2YB102Nr00n8e7xrzsfVs="
     },
     "sysc-greet": {
       "type": "Git",
@@ -209,11 +408,37 @@
         "owner": "kagurazakei",
         "repo": "sysc-greet"
       },
-      "branch": "master",
+      "branch": "main",
       "submodules": false,
-      "revision": "59260760c6c7cf65079efedf0d967a65ac56463e",
-      "url": "https://github.com/kagurazakei/sysc-greet/archive/59260760c6c7cf65079efedf0d967a65ac56463e.tar.gz",
-      "hash": "sha256-Y2iB3Rg7yNCmvHrGl8n+3vBXxTiuckzJRE+W98FFYmI="
+      "revision": "72e7ceb54fe0802ec444d65e67cdcdd0c09f88cd",
+      "url": "https://github.com/kagurazakei/sysc-greet/archive/72e7ceb54fe0802ec444d65e67cdcdd0c09f88cd.tar.gz",
+      "hash": "sha256-W3kMZTkg+VepvmGOflBsvIg5y3CiNvvgMn4KojyCeNA="
+    },
+    "waifu-cursors": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "waifu-cursors"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "8e692c1daacf241b3d76ea3b2024f0fa4d662531",
+      "url": "https://github.com/kagurazakei/waifu-cursors/archive/8e692c1daacf241b3d76ea3b2024f0fa4d662531.tar.gz",
+      "hash": "sha256-68QmW2WK0OxyMlcdTxhjCRY4SMmKWy+eDF8yA6dkx4c="
+    },
+    "walls": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "walls"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "bbab47e790694112fe01550e9af5455a04a5b8c4",
+      "url": "https://github.com/kagurazakei/walls/archive/bbab47e790694112fe01550e9af5455a04a5b8c4.tar.gz",
+      "hash": "sha256-C8rWrCFN5v+WtY2TqJzkD74BU+BO2nXGVtIgQs0P9V8="
     },
     "zenNvim": {
       "type": "Git",
@@ -224,9 +449,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "610dd60c948e7300e24092292fa47b9178aca3f5",
-      "url": "https://github.com/nendix/zen.nvim/archive/610dd60c948e7300e24092292fa47b9178aca3f5.tar.gz",
-      "hash": "sha256-FSDIPyH6Fra9EO8fvr5uwwRaWEHJFjKMgfMZkl3BUeQ="
+      "revision": "9a60e3fbef521f754cb54a78106647873a50a8ae",
+      "url": "https://github.com/nendix/zen.nvim/archive/9a60e3fbef521f754cb54a78106647873a50a8ae.tar.gz",
+      "hash": "sha256-MaJQ2zZn2M3Oc5QViY7nfSJqf3Ipy0oqno4bSttN20U="
     }
   },
   "version": 7

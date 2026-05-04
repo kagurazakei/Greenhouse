@@ -1,49 +1,155 @@
 {
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-	  "source": "~/Greenhouse/modules/hosts/Amaryllis/hjem/vsmrf/_config/fastfetch/art.txt"
-  },
-  "display": {
-    "separator": "\t\t",
-    "color":{
-      "keys":"blue"
+    "source": "~/.config/fastfetch/pngs/anime/*",
+    //"width": 6,
+    "type": "kitty",
+    "width": 26,
+    "height":12,
+    "padding": {
+      "top": 4,
+      "left": 0,
+      "right":2
     },
-    "key": {
-      "width": 12
+    "color": {
+      "1": "red",
+      "2": "green",
+      "3": "yellow",
+      "4": "blue",
+      "5": "magenta",
+      "6":"cyan",
+      "7": "white"
     }
   },
-
+  "display": {
+    "separator": "  ",
+    "color": {
+        "title": "red"
+        }
+  },
   "modules": [
-    "break",
+    // Title
     {
-    "type": "os",
-    "key": "Distro",
-    "format": "{3}"
+      "type": "title",
+      "format": "{#1}╭───────────── {#}{user-name-colored}"
+    },
+    // System Information
+    {
+      "type": "custom",
+      "format": "{#1}│ {#}{#33}System Information{#}"
+    },
+    {
+      "type": "os",
+      "key": "  󰍹 OS",
+      "keyColor":"cyan"
     },
     {
       "type": "kernel",
-      "key": "Kernel",
-      "format": "{release}"
+      "key": "  󰒋 Kernel",
+      "keyColor":"magenta"
+    },
+    {
+      "type": "uptime",
+      "key": "  󰅐 Uptime",
+      "keyColor":"cyan"
     },
     {
       "type": "packages",
-      "key": "pkgs",
-      "format": "{1}"
+      "key": "  󰏖 Packages",
+      "format": "{all}",
+      "keyColor":"magenta"
     },
     {
-      "type": "shell",
-      "key": "shell",
-      "format":"{pretty-name}"
-
+      "type": "custom",
+      "format": "{#1}│",
+      "keyColor":"cyan"
+    },
+    // Desktop Environment
+    {
+      "type": "custom",
+      "format": "{#1}│ {#}{#33}Desktop Environment{#}"
     },
     {
       "type": "wm",
-      "key": "wm",
-      "format": "{2}"
+      "key": "  󱂬 WM",
+      "keyColor":"magenta",
+      "format": "{2} {#32}({3}){#}"
     },
     {
-      "type": "terminal",
-      "key": "Terminal",
-      "format": "{pretty-name}"
+      "type": "display",
+      "key": "  󰹑 Resolution",
+      "keyColor":"cyan"
+    },
+    {
+      "type": "shell",
+      "key": "  󰞷 Shell",
+      "keyColor":"magenta"
+    },
+    {
+      "type": "terminalfont",
+      "key": "  󰛖 Font",
+      "keyColor":"cyan",
+      "format": "{1}"
+    },
+    {
+      "type": "custom",
+      "format": "{#1}│"
+    },
+    // Hardware Information
+    {
+      "type": "custom",
+      "format": "{#1}│ {#}{#33}Hardware Information{#}"
+    },
+    {
+      "type": "cpu",
+      "key": "  󰻠 CPU",
+      "keyColor":"cyan",
+      "format": "{1} {#32}({4}){#} {7}"
+    },
+    {
+      "type": "gpu",
+      "key": "  󰢮 GPU",
+      "keyColor":"magenta",
+      "format": "{1} {2} {#33}[{6}]{#}"
+    },
+    {
+      "type": "memory",
+      "key": "  󰍛 Memory",
+      "keyColor":"cyan",
+      "percent": {
+            "type": 3,
+            "green": 30,
+            "yellow": 70
+        },
+        "format": "{4} {1}/{2} {#32}({3}){#}"
+    },
+    {
+      "type": "disk",
+      "key": "  󰋊 Disk (/)",
+      "folders": "/",
+      "keyColor":"magenta",
+      "percent": {
+            "type": 3,
+            "green": 30,
+            "yellow": 70
+        },
+        "format": "{13} {1}/{2} {#33}({3}){#}"
+    },
+    {
+      "type": "custom",
+      "format": "{#1}│"
+    },
+    // Colors
+    {
+      "type": "colors",
+      "key": "{#separator}│",
+      "symbol":"square"
+
+    },
+    // Footer
+    {
+      "type": "custom",
+      "format": "{#1}╰───────────────────────────────╯"
     }
   ]
 }

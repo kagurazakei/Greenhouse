@@ -1,15 +1,12 @@
+{ inputs, ... }:
 {
   modules.nixos.sysc-greet =
     {
       pkgs,
-      sources,
       ...
     }:
     {
-      imports = [ (sources.sysc-greet + "/module.nix") ];
-      environment.systemPackages = [
-        (pkgs.callPackage "${sources.sysc-greet}/default.nix" { })
-      ];
+      imports = [ (inputs.sysc-greet + "/module.nix") ];
       environment.pathsToLink = [ "/run/current-system/sw/share/wayland-sessions/" ];
       services.sysc-greet = {
         enable = true;

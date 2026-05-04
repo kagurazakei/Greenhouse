@@ -49,14 +49,14 @@
           ];
 
           environment.systemPackages = with pkgs; [
-            vulkanPackages_latest.vulkan-loader
-            vulkanPackages_latest.vulkan-tools
+            vulkan-loader
+            vulkan-tools
             libva-utils
             tmux
             bottom
             htop
             egl-wayland
-            pkgs.commit.mesa
+            mesa
             zenith-nvidia
           ];
           boot = {

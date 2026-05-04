@@ -1,9 +1,10 @@
+{ inputs, ... }:
 {
   modules.hosts.kagura =
-    { pkgs, sources, ... }:
+    { pkgs, ... }:
     {
       environment.systemPackages = [
-        (pkgs.callPackage "${sources.shizuruPkgs}/pkgs/default.nix" { }).kureiji-ollie-cursors
+        (pkgs.callPackage (inputs.shizuruPkgs + "/pkgs/default.nix") { }).kureiji-ollie-cursors
       ];
       boot = {
         consoleLogLevel = 0;
@@ -32,7 +33,7 @@
         plymouth = {
           enable = true;
           themePackages = [
-            (pkgs.callPackage "${sources.shizuruPkgs}/pkgs/default.nix" { }).cat-plymouth
+            (pkgs.callPackage "${inputs.shizuruPkgs}/pkgs/default.nix" { }).cat-plymouth
           ];
           theme = "catppuccin-mocha-mod";
         };
