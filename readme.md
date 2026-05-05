@@ -1,6 +1,6 @@
 <div align="center">
 <h2>Greenhouse</h2>
-<p>My Nixos configuration<br>(npins + dendritic pattern)</p>
+<p>My Nixos configuration<br>(npins + dendritic pattern)<br>FlakeLess Config</p>
 </div>
 
 <br>
@@ -10,8 +10,7 @@
 <br>
 
 > [!WARNING]
-> Very cursed config. Studying or yoinking from it is not recommended
-
+> Very cursed config. Studying Purpose Originally from [Iamvismorf/Greenhouse](https://github.com/Iamvismorf/Greenhouse.git)
 <br>
 
 #### You have been warned
