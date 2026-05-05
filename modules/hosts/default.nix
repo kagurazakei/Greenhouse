@@ -19,6 +19,10 @@ let
       specialArgs = {
         pkgsForSystem = pkgsForSystem;
         scripts = pkgsForSystem.scripts or { };
+        inherit
+          self
+          inputs
+          ;
       };
     };
 

@@ -1,4 +1,8 @@
-{ self, username, ... }:
+{
+  self,
+  username,
+  ...
+}:
 let
   hostname = "kagura";
 in
@@ -8,6 +12,7 @@ in
       self.modules.nixos.misc_steam
       self.modules.programs.dots_fish
       self.modules.programs.dots_hyprland
+      self.modules.programs.dots_impure
       self.modules.programs.dots_yazi
       self.modules.programs.spicetify
       self.modules.programs.sysc-greet
@@ -27,6 +32,7 @@ in
       self.modules.nixos.locale
       self.modules.nixos.networking
       self.modules.nixos.nix
+      self.modules.nixos.misc
       self.modules.nixos.packages
       self.modules.nixos.intel
       self.modules.nixos.nvidia

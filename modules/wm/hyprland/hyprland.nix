@@ -1,9 +1,21 @@
 {
   self,
   inputs,
+  utils,
+  username,
   ...
 }:
 {
+
+  modules.programs.dots_hyprland = utils.mkDotsModule username {
+    "kitty/kitty.conf" = "/kitty/kagura.conf";
+    "hypr/hyprland.conf" = "/hyprland/hyprland.conf";
+    "hypr/keybinds.conf" = "/hyprland/keybinds.conf";
+    "hypr/windowRules.conf" = "/hyprland/windowRules.conf";
+    "hypr/animations" = "/hyprland/animations";
+    "hypr/hyprcolors.conf" = "/hyprland/hyprcolors.conf";
+    "hypr/hypridle.conf" = "/hyprland/hypridle.conf";
+  };
   modules.wm.hyprland =
     {
       pkgs,

@@ -19,7 +19,7 @@
           "man:systemd-getty-generator(8)"
         ];
         conflicts = [ "console-getty.service" ];
-        restartIfChanged = false;
+        restartIfChanged = true;
         unitConfig.DefaultDependencies = false;
         wantedBy = [
           "multi-user.target"

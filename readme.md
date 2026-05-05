@@ -10,7 +10,11 @@
 <br>
 
 > [!WARNING]
-> Very cursed config. Studying Purpose Originally from [Iamvismorf/Greenhouse](https://github.com/Iamvismorf/Greenhouse.git)
+> Very cursed config. I will adapt this config to be mine. Studying Purpose Originally from [Iamvismorf/Greenhouse](https://github.com/Iamvismorf/Greenhouse.git)
+<br>
+
+> [!WARNING]
+> Later i will completely remove the _mkStoreSymlink. I will use the hjem-impure more precisely.
 <br>
 
 #### You have been warned
@@ -33,5 +37,6 @@ The entry point is [./modules/hosts](modules/hosts)
 ## Credits
 + [Rexcrazy804/Zaphkiel](https://github.com/Rexcrazy804/Zaphkiel)
 + [denful/dendritic-unflake](https://github.com/denful/dendritic-unflake)
++ [Iamvismorf/Greenhouse](https://github.com/Iamvismorf/Greenhouse.git)
 + [pinning with npins blog by Jade](https://jade.fyi/blog/pinning-nixos-with-npins/)
 + [pinning with npins blog by piegames](https://piegames.de/dumps/pinning-nixos-with-npins-revisited/)

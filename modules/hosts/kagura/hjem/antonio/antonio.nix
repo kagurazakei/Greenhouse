@@ -1,7 +1,7 @@
 {
   self,
   inputs,
-  config,
+  utils,
   ...
 }:
 let
@@ -11,7 +11,12 @@ let
 in
 {
   modules.hjem.${username} =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
     {
       nixpkgs.overlays = [
         inputs.neovim-nightly.overlays.default
@@ -67,33 +72,37 @@ in
 
       hjem.users.${username} = {
         clobberFiles = true;
+        user = username;
+        directory = config.users.users.${username}.home;
         impure = {
           enable = true;
           dotsDir = dots;
           dotsDirImpure = "/home/antonio/Greenhouse/dots";
+          parseAttrs = [
+            config.hjem.users.${username}.xdg.config.files
+            config.hjem.users.${username}.xdg.state.files
+          ];
         };
         packages = import ./_packages.nix { inherit inputs pkgs; };
-        xdg.config.files = {
-          "nixpkgs".source = dots + "/nixpkgs";
-          "fastfetch".source = dots + "/fastfetch";
-          "git".source = dots + "/git";
-          "swappy/config".source = dots + "/swappy/config";
-          "lazygit".source = dots + "/lazygit";
-          "bottom".source = dots + "/bottom";
-          "btop".source = dots + "/btop";
-          "kitty/kitty.conf".source = dots + "/kitty/kagura.conf";
-          "kitty/themes/oxocarbon.conf".source = dots + "/kitty/themes";
-          "carapace/carapace.toml".source = dots + "/carapace/carapace.toml";
-          "equibop/settings.json".source = dots + "/equibop/settings.json";
-          "equibop/themes".source = dots + "/equibop/themes";
-          "applications.menu".source = dots + "/menus/applications.menu";
-          "fuzzel/fuzzel.ini".source = dots + "/fuzzel/fuzzel.ini";
-          "fuzzel/noctalia".source = dots + "/fuzzel/noctalia";
-          "foot/foot.ini".source = dots + "/foot/foot.ini";
-          "foot/rose-pine.ini".source = inputs.rosep-foot + "/rose-pine";
-          "wallpapers/nix-logo.png".source = inputs.walls + "/nix-logo.png";
-          ".face.icon".source = iconSource;
-        };
       };
     };
+  modules.programs.dots_impure = utils.mkDotsModule username {
+    "nixpkgs" = "/nixpkgs";
+    "fastfetch" = "/fastfetch";
+    "swappy/config" = "/swappy/config";
+    "lazygit" = "/lazygit";
+    "bottom" = "/bottom";
+    "btop" = "/btop";
+    "kitty/themes" = "/kitty/themes";
+    "carapace/carapace.toml" = "/carapace/carapace.toml";
+    "equibop/settings.json" = "/equibop/settings.json";
+    "equibop/themes" = "/equibop/themes";
+    "applications.menu" = "/menus/applications.menu";
+    "fuzzel/fuzzel.ini" = "/fuzzel/fuzzel.ini";
+    "fuzzel/noctalia" = "/fuzzel/noctalia";
+    "foot/foot.ini" = "/foot/foot.ini";
+    "foot/rose-pine.ini" = { ... }: inputs.rosep-foot + "/rose-pine";
+    "wallpapers/nix-logo.png" = { ... }: inputs.walls + "/nix-logo.png";
+    ".face.icon" = "/profile.png";
+  };
 }

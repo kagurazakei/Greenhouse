@@ -39,7 +39,6 @@
             pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto
           else
             pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
-        consoleLogLevel = 0;
         kernelParams = [
           "quiet"
           "splash"

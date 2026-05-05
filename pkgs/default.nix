@@ -1,18 +1,16 @@
-{
-  pkgs,
-  lib,
-  writers,
-  fzf,
-  bash,
-  coreutils,
-  gnused,
-  npins,
-  wl-clipboard,
-  xdg-utils,
-  util-linux,
-  writeShellScriptBin,
-}:
-
+{ pkgs, lib, ... }:
+let
+  # Create a custom callPackage that includes common helpers
+  customCallPackage =
+    path: extraArgs:
+    pkgs.callPackage path (
+      {
+        inherit (pkgs) writeShellScriptBin writeShellScript;
+        writeAwk = pkgs.writeShellScriptBin "awk-script" "...";
+      }
+      // extraArgs
+    );
+in
 lib.fix (
   self:
   let
@@ -24,42 +22,12 @@ lib.fix (
     gtk-themes = callPackage ./gtk-themes.nix { };
     equibop = callPackage ./equibop/package.nix { };
     scripts = {
-      npins-show = callPackage ./scripts/npins-show.nix {
-        inherit npins util-linux coreutils;
-      };
-      lutui = callPackage ./scripts/lutui.nix {
-        inherit
-          writers
-          pkgs
-          ;
-      };
-      nixy = callPackage ./scripts/nixy.nix {
-        inherit
-          writeShellScriptBin
-          fzf
-          ;
-      };
-      npins-helper = callPackage ./scripts/npins-helper.nix {
-        inherit
-          writers
-          bash
-          npins
-          coreutils
-          gnused
-          ;
-      };
-      npins-ui = callPackage ./scripts/npins-ui.nix {
-        inherit
-          writers
-          fzf
-          coreutils
-          gnused
-          npins
-          wl-clipboard
-          xdg-utils
-          ;
-      };
-      touchpad-toggle = callPackage ./scripts/touchpad-toggle.nix { inherit pkgs writers; };
+      npins-show = customCallPackage ./scripts/npins-show.nix { };
+      lutui = customCallPackage ./scripts/lutui.nix { };
+      nixy = customCallPackage ./scripts/nixy.nix { };
+      npins-helper = customCallPackage ./scripts/npins-helper.nix { };
+      npins-ui = customCallPackage ./scripts/npins-ui.nix;
+      touchpad-toggle = customCallPackage ./scripts/touchpad-toggle.nix { };
     };
   }
 )

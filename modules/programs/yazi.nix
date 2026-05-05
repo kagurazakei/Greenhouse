@@ -12,11 +12,6 @@
       "/yazi/flavors/catppuccin-macchiato.yazi/flavor.toml";
   };
 
-  modules.programs.dots_hyprland = utils.mkDotsModule username {
-    "hypr/hyprland.conf" = "/hyprland/hyprland.conf";
-    "hypr/keybinds.conf" = "/hyprland/keybinds.conf";
-    "hypr/windowRules.conf" = "/hyprland/windowRules.conf";
-  };
   modules.programs.yazi =
     {
       pkgs,

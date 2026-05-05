@@ -4,6 +4,9 @@ let
   utils = import ./utils;
   inputs = import ./inputs.nix;
   username = "antonio";
+  with-inputs = import sources.with-inputs sources {
+    hjem-rum = inputs.hjem;
+  };
   myPackages = import ./pkgs {
     pkgs = nixpkgs;
     lib = nixpkgs.lib;
@@ -24,6 +27,7 @@ let
         {
           _module.args = {
             zpkgs = myPackages;
+            inherit self;
           };
         }
       ];
@@ -38,6 +42,7 @@ let
           utils
           inputs
           username
+          with-inputs
           ;
         pkgs = nixpkgs;
       };
