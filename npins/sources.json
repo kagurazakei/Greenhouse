@@ -286,9 +286,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "b12141ef619e0a9c1c84dc8c684040326f27cdcc",
-      "url": "https://github.com/nixos/nixpkgs/archive/b12141ef619e0a9c1c84dc8c684040326f27cdcc.tar.gz",
-      "hash": "sha256-ZSK0NL4a1BwVbbTBoSnWgbJy9HeZFXLYQizjb2DPF24="
+      "revision": "15f4ee454b1dce334612fa6843b3e05cf546efab",
+      "url": "https://github.com/nixos/nixpkgs/archive/15f4ee454b1dce334612fa6843b3e05cf546efab.tar.gz",
+      "hash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4="
     },
     "npins": {
       "type": "Git",
@@ -423,6 +423,22 @@
       "revision": "72e7ceb54fe0802ec444d65e67cdcdd0c09f88cd",
       "url": "https://github.com/kagurazakei/sysc-greet/archive/72e7ceb54fe0802ec444d65e67cdcdd0c09f88cd.tar.gz",
       "hash": "sha256-W3kMZTkg+VepvmGOflBsvIg5y3CiNvvgMn4KojyCeNA="
+    },
+    "viu": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viu-media",
+        "repo": "viu"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v3.3.7",
+      "revision": "1ce2d2740d2a8530bb62f3b9ecf5dee2706f20bb",
+      "url": "https://api.github.com/repos/viu-media/viu/tarball/refs/tags/v3.3.7",
+      "hash": "sha256-BYxkMHB5xzyyOtx2u/xvCmbzqXv5Towe1P6Zld+YtTo="
     },
     "waifu-cursors": {
       "type": "Git",

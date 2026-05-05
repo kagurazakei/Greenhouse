@@ -11,12 +11,14 @@ let
     hostname:
     let
       system = self.modules.hosts.${hostname}.system or "x86_64-linux";
-      zpkgs = self.zpkgs.importPackages.${system} or { };
+      pkgsForSystem = self.zpkgsLib.importPackages.${system} or { };
+
     in
     nixosSystem {
       modules = [ self.modules.hosts.${hostname} ];
       specialArgs = {
-        inherit zpkgs;
+        pkgsForSystem = pkgsForSystem;
+        scripts = pkgsForSystem.scripts or { };
       };
     };
 

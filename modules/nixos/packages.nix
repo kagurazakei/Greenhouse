@@ -36,6 +36,7 @@
           inherit (zpkgs)
             qt6ct
             gtk-themes
+            viu
             ;
           inherit (pkgs)
             equibop
@@ -54,6 +55,7 @@
             gtk-engine-murrine
             rose-pine-icon-theme
             rose-pine-gtk-theme
+            vscodium
             ;
         };
       };
