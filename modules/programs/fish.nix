@@ -1,6 +1,7 @@
 {
   utils,
   username,
+  self,
   ...
 }:
 {
@@ -144,7 +145,7 @@
             set sponge_purge_only_on_exit true
             set fish_greeting
             set fish_cursor_insert line blink
-            set -Ux LS_COLORS $(cat ${../hosts/kagura/hjem/antonio/_config/fish/rose-pine-lscolors})
+            set -Ux LS_COLORS $(cat ${self.paths.dots + "/fish/rosepinelscolors"})
             set -Ux FZF_DEFAULT_OPTS ${fzf-options}
             set -xg XDG_BIN_HOME $HOME/.local/bin
             fish_vi_key_bindings

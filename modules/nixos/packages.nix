@@ -40,10 +40,13 @@
             ;
           inherit (pkgs)
             equibop
+            ffmpeg
+            nix-init
             git
             gh
             just
             gnupg
+            lolcat
             yazi
             neovim
             nh

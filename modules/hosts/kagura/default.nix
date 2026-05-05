@@ -5,7 +5,7 @@ in
 {
   modules.hosts.${hostname} = {
     imports = [
-      # self.modules.nixos.misc_steam
+      self.modules.nixos.misc_steam
       self.modules.programs.dots_fish
       self.modules.programs.dots_hyprland
       self.modules.programs.dots_yazi

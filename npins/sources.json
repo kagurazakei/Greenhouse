@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "457b5026ee27ca0f6a6b93234759f67ec5b0b1a0",
-      "url": "https://github.com/kagurazakei/ambxst/archive/457b5026ee27ca0f6a6b93234759f67ec5b0b1a0.tar.gz",
-      "hash": "sha256-twFmO+JIaKs52wWoq/ZygrBkoAelG/LINHUH2tHk60s="
+      "revision": "be0383712772de22d4fe3b03603c74cf6fcd32d2",
+      "url": "https://github.com/kagurazakei/ambxst/archive/be0383712772de22d4fe3b03603c74cf6fcd32d2.tar.gz",
+      "hash": "sha256-JKeWbrp1d+9UMNqAdIClUjcJz0X+LnwRHUrtSHUYlvw="
     },
     "blink-cmp": {
       "type": "Git",
@@ -343,21 +343,18 @@
       "hash": "sha256-aJ5ZdIX10nmhzMLjP6QMuFJHvljJD+xcojuKZjPkr70="
     },
     "quickshell": {
-      "type": "GitRelease",
+      "type": "Git",
       "repository": {
         "type": "Forgejo",
         "server": "https://git.outfoxxed.me/",
-        "owner": "quickshell",
+        "owner": "outfoxxed",
         "repo": "quickshell"
       },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
+      "branch": "main",
       "submodules": false,
-      "version": "v0.2.1",
-      "revision": "a1a150fab00a93ea983aaca5df55304bc837f51b",
-      "url": "https://git.outfoxxed.me/api/v1/repos/quickshell/quickshell/archive/v0.2.1.tar.gz",
-      "hash": "sha256-e++Ogy91Sv7gGLMdAqZaBzbH/UmPWZ4GAt7VDCA66aU="
+      "revision": "41828c4180fb921df7992a5405f5ff05d2ac2fff",
+      "url": "https://git.outfoxxed.me/outfoxxed/quickshell/archive/41828c4180fb921df7992a5405f5ff05d2ac2fff.tar.gz",
+      "hash": "sha256-O2aMFdDUYJazFrlwL7aSIHbUSEm3ADVZjmf41uBJfHs="
     },
     "rosep-fish": {
       "type": "Git",

@@ -45,19 +45,19 @@
           accent = "red";
         })
       ];
-      environment.variables = {
-        QT_PLUGIN_PATH = [
-          "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtPluginPrefix}"
-        ];
-
-        QML2_IMPORT_PATH = lib.concatStringsSep ":" [
-          "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtQmlPrefix}"
-          "${pkgs.kdePackages.kirigami}/lib/qt-6/qml"
-          "${pkgs.qt6.qt5compat}/lib/qt6/qml"
-          "${pkgs.libsForQt5.qt5.qtgraphicaleffects}/lib/qt-5.15.18/qml"
-          "${pkgs.qt6.qtbase}/lib/qt6/qml"
-        ];
-      };
+      # environment.variables = {
+      #   QT_PLUGIN_PATH = [
+      #     "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtPluginPrefix}"
+      #   ];
+      #
+      #   QML2_IMPORT_PATH = lib.concatStringsSep ":" [
+      #     "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtQmlPrefix}"
+      #     "${pkgs.kdePackages.kirigami}/lib/qt-6/qml"
+      #     "${pkgs.qt6.qt5compat}/lib/qt6/qml"
+      #     "${pkgs.libsForQt5.qt5.qtgraphicaleffects}/lib/qt-5.15.18/qml"
+      #     "${pkgs.qt6.qtbase}/lib/qt6/qml"
+      #   ];
+      # };
       hj = {
         xdg.config.files = {
           "qt6ct/qt6ct.conf".source = config.impure-dots + "/qt6ct/qt6ct.conf";

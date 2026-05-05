@@ -44,7 +44,7 @@ let
     }).config
     // {
       paths = {
-        dots = ./modules/hosts/kagura/hjem/antonio/_config;
+        dots = ./dots;
         templates = ./templates;
         pkgs = ./pkgs;
         secrets = ./secrets;

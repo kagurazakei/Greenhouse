@@ -3,7 +3,7 @@
   inputs,
 }:
 let
-  vixvim = inputs.mnw.lib.wrap { inherit pkgs inputs; } ./_config/neovim;
+  vixvim = inputs.mnw.lib.wrap { inherit pkgs inputs; } ../../../../../dots/neovim;
 
 in
 builtins.attrValues {

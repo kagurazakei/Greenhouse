@@ -25,6 +25,7 @@ The entry point is [./modules/hosts](modules/hosts)
     + see [./default.nix](default.nix) for example usage
 + [Impure symlink](utils/_mkStoreSymlink.nix) dotfiles experience like in traditional UNIX systems
     + see ./modules/hosts/hostName/hjem/username/username.nix for example usage
++ Impure symlink using hjem impure for alternative this repo owner _mkStoreSymlink
 + [inputs.nix](inputs.nix) Automatic inputs creation
 + [Nvim config](/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim/lua/vismorf/config)
     + [root finder](modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim/lua/vismorf/plugins/rootf.lua)

@@ -1,12 +1,13 @@
 {
   self,
   inputs,
-  utils,
+  config,
   ...
 }:
 let
   username = "antonio";
-  dots = "${./_config}";
+  dots = "${self.paths.dots}";
+  iconSource = dots + "/profile.png"; # Define once
 in
 {
   modules.hjem.${username} =
@@ -24,7 +25,7 @@ in
         inherit username;
         enable = true;
         qt = {
-          colorScheme = ./_config/theme/BreezeDark.colors;
+          colorScheme = self.paths.dots + "/theme/BreezeDark.colors";
           iconTheme = "Papirus-Dark";
         };
       };
@@ -49,27 +50,40 @@ in
       programs.fish.enable = true;
       programs.gpu-screen-recorder.enable = true;
 
+      # Hjem dotfiles
+      hj.files = {
+        ".face.icon".source = iconSource;
+      };
+
+      # AccountsService configuration - FIXED: use iconSource directly
+      systemd.tmpfiles.rules = [
+        # AccountsService user file
+        "f+ /var/lib/AccountsService/users/${username} 0600 root root - \
+[User]\nIcon=/var/lib/AccountsService/icons/${username}\n"
+
+        # Symlink icon - use iconSource directly, not config.hj
+        "L+ /var/lib/AccountsService/icons/${username} - - - - ${iconSource}"
+      ];
+
       hjem.users.${username} = {
         clobberFiles = true;
         impure = {
           enable = true;
           dotsDir = dots;
-          dotsDirImpure = "/home/antonio/Greenhouse/modules/hosts/kagura/hjem/antonio/_config";
+          dotsDirImpure = "/home/antonio/Greenhouse/dots";
         };
         packages = import ./_packages.nix { inherit inputs pkgs; };
         xdg.config.files = {
-          "nixpkgs".source = ./_config/nixpkgs;
-          "mpv/mpv.conf".source = ./_config/mpv/mpv.conf;
-          "ghostty".source = utils.mkStoreSymlink ./_config/ghostty;
+          "nixpkgs".source = dots + "/nixpkgs";
           "fastfetch".source = dots + "/fastfetch";
-          "git".source = ./_config/git;
-          "swappy/config".source = ./_config/swappy/config;
+          "git".source = dots + "/git";
+          "swappy/config".source = dots + "/swappy/config";
           "lazygit".source = dots + "/lazygit";
-          "bottom".source = ./_config/bottom;
-          "btop".source = utils.mkStoreSymlink ./_config/btop;
-          "kitty/kitty.conf".source = ./_config/kitty/kagura.conf;
-          "kitty/themes/oxocarbon.conf".source = ./_config/kitty/themes/oxocarbon.conf;
-          "carapace/carapace.toml".source = ./_config/carapace/carapace.toml;
+          "bottom".source = dots + "/bottom";
+          "btop".source = dots + "/btop";
+          "kitty/kitty.conf".source = dots + "/kitty/kagura.conf";
+          "kitty/themes/oxocarbon.conf".source = dots + "/kitty/themes";
+          "carapace/carapace.toml".source = dots + "/carapace/carapace.toml";
           "equibop/settings.json".source = dots + "/equibop/settings.json";
           "equibop/themes".source = dots + "/equibop/themes";
           "applications.menu".source = dots + "/menus/applications.menu";
@@ -77,6 +91,8 @@ in
           "fuzzel/noctalia".source = dots + "/fuzzel/noctalia";
           "foot/foot.ini".source = dots + "/foot/foot.ini";
           "foot/rose-pine.ini".source = inputs.rosep-foot + "/rose-pine";
+          "wallpapers/nix-logo.png".source = inputs.walls + "/nix-logo.png";
+          ".face.icon".source = iconSource;
         };
       };
     };
