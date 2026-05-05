@@ -25,12 +25,10 @@ The entry point is [./modules/hosts](modules/hosts)
     + see [./default.nix](default.nix) for example usage
 + [Impure symlink](utils/_mkStoreSymlink.nix) dotfiles experience like in traditional UNIX systems
     + see ./modules/hosts/hostName/hjem/username/username.nix for example usage
-+ Impure symlink using hjem impure for alternative this repo owner _mkStoreSymlink
++[hjem-impure](./modules/hosts/kagura/hjem/antonio/antonio.nix) alternative for _mkStoreSymlink using hjem-impure
 + [inputs.nix](inputs.nix) Automatic inputs creation
-+ [Nvim config](/modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim/lua/vismorf/config)
-    + [root finder](modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim/lua/vismorf/plugins/rootf.lua)
-    + [vim mode in cmdline with some qol features](modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim/lua/vismorf/config/keymaps.lua)
-    + [restore last session](modules/hosts/Amaryllis/hjem/vsmrf/_config/neovim/nvim/lua/vismorf/config/backend)
++ [Nvim config](./dots/neovim/default.nix)
+    + plugin manage by npins via mnw [start-plugins](./dots/neovim/start-plugins.json) & [opt-plugins](./dots/neovim/opt-plugins.json)   
 + [Just recipes](Justfile)
 
 ## Credits
