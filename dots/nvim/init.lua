@@ -1,7 +1,0 @@
-require("keymaps")
-require("options")
-require("autocmds")
-require("diagnostic")
-require("lsp")
-require("lz.n").load("plugins")
-vim.cmd.colorscheme("base16-tokyodark-terminal")

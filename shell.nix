@@ -8,10 +8,10 @@ pkgs.mkShell {
 
   buildInputs = [
     (pkgs.writeShellScriptBin "opt" ''
-      npins --lock-file ./modules/hosts/kagura/hjem/antonio/_config/neovim/opt-plugins.json "$@"
+      npins --lock-file ./dots/neovim/opt-plugins.json "$@"
     '')
     (pkgs.writeShellScriptBin "start" ''
-      npins --lock-file ./modules/hosts/kagura/hjem/antonio/_config/neovim/start-plugins.json "$@"
+      npins --lock-file ./dots/neovim/start-plugins.json "$@"
     '')
     pkgs.npins
   ];
