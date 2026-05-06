@@ -4,27 +4,13 @@ let
   utils = import ./utils;
   inputs = import ./inputs.nix;
   username = "antonio";
-  with-inputs-lib = import sources.with-inputs;
-  inputSpec = {
-    nixpkgs = inputs.nixpkgs;
-    hjem = inputs.hjem;
-    neovim.inputs.nixpkgs.follows = "nixpkgs";
-    hjem-rum.follows = "hjem";
-    hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
-    quickshell = inputs.quickshell;
-    ambxst.follows = "quickshell";
+  with-inputs = import sources.with-inputs sources {
+    hjem-rum = inputs.hjem;
   };
-  outputs = resolvedInputs: {
-    resolved = resolvedInputs;
-  };
-  flakeResult = with-inputs-lib sources inputSpec outputs;
-  resolvedInputs = flakeResult.resolved;
-
   myPackages = import ./pkgs {
     pkgs = nixpkgs;
     lib = nixpkgs.lib;
   };
-
   modules = {
     imports =
       utils.recursiveImport {
@@ -42,7 +28,6 @@ let
           _module.args = {
             zpkgs = myPackages;
             inherit self;
-            resolvedInputs = resolvedInputs; # Now available in modules
           };
         }
       ];
@@ -57,8 +42,7 @@ let
           utils
           inputs
           username
-          with-inputs-lib
-          resolvedInputs
+          with-inputs
           ;
         pkgs = nixpkgs;
       };
