@@ -18,7 +18,7 @@
       options = {
         nixos.packages.npins.buildFromSrc = lib.mkOption {
           type = lib.types.bool;
-          default = false;
+          default = true;
         };
       };
       config = {
@@ -38,10 +38,15 @@
             gtk-themes
             viu
             ;
-          inherit (pkgs)
+          inherit (pkgs.master)
+            nh
+            cachix
             equibop
+            ;
+          inherit (pkgs)
             ffmpeg
             nix-init
+            neovide
             git
             gh
             just
@@ -49,12 +54,10 @@
             lolcat
             yazi
             neovim
-            nh
             wl-clipboard
             cliphist
             libnotify
             librewolf
-            cachix
             gtk-engine-murrine
             rose-pine-icon-theme
             rose-pine-gtk-theme

@@ -1,21 +1,35 @@
-# based on outfoxxed/impurity.nix
-# Non flake configs are impure
-# apparently this is home manager's mkOutOfStoreSymlink implementation. I did not know that at the time of writing this
-#
-# _path -> path in nix store that is a symlink to _path
 let
   sources = import ../npins;
   pkgs = import sources.nixpkgs { };
+
+  # Helper to concatenate paths
+  concat =
+    base: suffix:
+    if builtins.isString base && builtins.isString suffix then
+      base + suffix
+    else if builtins.isPath base then
+      toString base + suffix
+    else
+      builtins.throw "mkStoreSymlink: cannot concatenate ${builtins.typeOf base} with ${builtins.typeOf suffix}";
+
 in
-path:
+pathOrParts:
 let
-  absolutePath = toString path;
-  # isImpure = builtins ? currentSystem; # should work with flake configs. No need to check for envVar
+  # Handle different input types
+  finalPath =
+    if builtins.isFunction pathOrParts then
+      pathOrParts concat
+    else if builtins.isList pathOrParts then
+      builtins.foldl' concat (builtins.elemAt pathOrParts 0) (builtins.tail pathOrParts)
+    else
+      pathOrParts;
+
+  absolutePath = if builtins.isPath finalPath then toString finalPath else finalPath;
   isImpure = builtins.getEnv "IMPURE";
 in
 if isImpure == "true" then
-  pkgs.runCommand "mkImpure-${absolutePath}" { } ''
-    ln -s ${absolutePath} $out
+  pkgs.runCommand "mkSymlink-${builtins.baseNameOf absolutePath}" { } ''
+    ln -sfn ${absolutePath} $out
   ''
 else
-  path
+  absolutePath

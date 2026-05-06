@@ -33,7 +33,7 @@ function deploy
     end
 
     echo "🚀 Deploying to $host ($ip)..."
-    nixos-rebuild switch --flake .#$host --target-host antonio@$ip --sudo
+    nixos-rebuild boot --flake .#$host --target-host antonio@$ip --sudo
 end
 
 # Create shortcut aliases for each host

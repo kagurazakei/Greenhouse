@@ -8,7 +8,6 @@
 {
 
   modules.programs.dots_hyprland = utils.mkDotsModule username {
-    "kitty/kitty.conf" = "/kitty/kagura.conf";
     "hypr/hyprland.conf" = "/hyprland/hyprland.conf";
     "hypr/keybinds.conf" = "/hyprland/keybinds.conf";
     "hypr/windowRules.conf" = "/hyprland/windowRules.conf";

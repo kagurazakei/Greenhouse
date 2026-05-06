@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "87afd0a6f7b74d5d9449f3344a8a489f10d7b4df",
-      "url": "https://github.com/kagurazakei/Ambxst/archive/87afd0a6f7b74d5d9449f3344a8a489f10d7b4df.tar.gz",
-      "hash": "sha256-r0gMXkVvHLF+NlqvCHn6Prfmph97UOuSmVXSeHI06N0="
+      "revision": "bba9d578b25376db509c0b5fda937e1bf0cdaead",
+      "url": "https://github.com/kagurazakei/Ambxst/archive/bba9d578b25376db509c0b5fda937e1bf0cdaead.tar.gz",
+      "hash": "sha256-R43LQAPP5H5uHaE66vaYhIXt8zpt850+V3fibY+MhKA="
     },
     "blink-cmp": {
       "type": "Git",
@@ -133,6 +133,19 @@
       "url": "https://github.com/ghostty-org/ghostty/archive/1547dd667ab6d1f4ebcdc7282adc54c95752ee67.tar.gz",
       "hash": "sha256-dZFc+8az7BUIs8+v45XqNnY5G6oXEwVfVVHZQuATSGQ="
     },
+    "greeter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Nomadcxx",
+        "repo": "sysc-greet"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "6741aee90568418dc6008f0bbbc04b5e29d0781d",
+      "url": "https://github.com/Nomadcxx/sysc-greet/archive/6741aee90568418dc6008f0bbbc04b5e29d0781d.tar.gz",
+      "hash": "sha256-r7oJA/wfME8u5bCSOlHnrNFMBTbDxyhlGsCzrNtvke4="
+    },
     "hjem": {
       "type": "Git",
       "repository": {
@@ -197,6 +210,19 @@
       "revision": "7b1d382faf603b6d264f58627330f9faa5cba149",
       "url": "https://github.com/nix-community/impermanence/archive/7b1d382faf603b6d264f58627330f9faa5cba149.tar.gz",
       "hash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y="
+    },
+    "master": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "ed67bc86e84e51d4a88e73c7fd36006dc876476f",
+      "url": "https://github.com/nixos/nixpkgs/archive/ed67bc86e84e51d4a88e73c7fd36006dc876476f.tar.gz",
+      "hash": "sha256-62EWg6lI0qyzm7oAx5cAnGkLutvJsRBe0KkEW2JDZCE="
     },
     "mnw": {
       "type": "Git",
@@ -284,11 +310,11 @@
         "owner": "nixos",
         "repo": "nixpkgs"
       },
-      "branch": "nixos-unstable",
+      "branch": "nixpkgs-unstable",
       "submodules": false,
-      "revision": "15f4ee454b1dce334612fa6843b3e05cf546efab",
-      "url": "https://github.com/nixos/nixpkgs/archive/15f4ee454b1dce334612fa6843b3e05cf546efab.tar.gz",
-      "hash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4="
+      "revision": "bc57abace07689cfd34203aa5fb4027514895987",
+      "url": "https://github.com/nixos/nixpkgs/archive/bc57abace07689cfd34203aa5fb4027514895987.tar.gz",
+      "hash": "sha256-iw3XDIG6xxk+AZTcawCLHf6i9i4tXRzLZEoV9xhRToQ="
     },
     "noc-ambxst": {
       "type": "Git",

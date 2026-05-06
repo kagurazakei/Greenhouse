@@ -1,6 +1,7 @@
 {
   self,
   username,
+  inputs,
   ...
 }:
 let
@@ -50,12 +51,6 @@ in
       self.modules.hjem.antonio
 
       ./+hardware.nix
-    ];
-    nixpkgs.overlays = [
-      (_final: prev: {
-        swww = prev.awww; # or _final.awww if awww is from another overlay
-        system = prev.stdenv.hostPlatform.system;
-      })
     ];
     kagura = {
       secrets = {

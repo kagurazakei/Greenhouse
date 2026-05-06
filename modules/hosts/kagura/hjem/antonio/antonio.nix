@@ -84,6 +84,11 @@ in
           ];
         };
         packages = import ./_packages.nix { inherit inputs pkgs; };
+        xdg.config.files = {
+          "htop".source = utils.mkStoreSymlink self.paths.dots + "/htop";
+          "booru".source = utils.mkStoreSymlink self.paths.dots + "/booru";
+          "uwsm".source = utils.mkStoreSymlink self.paths.dots + "/uwsm";
+        };
       };
     };
   modules.programs.dots_impure = utils.mkDotsModule username {
@@ -93,6 +98,7 @@ in
     "lazygit" = "/lazygit";
     "bottom" = "/bottom";
     "btop" = "/btop";
+    "kitty/kitty.conf" = d: d.dotsDir + "/kitty/${d.lib.toLower d.config.networking.hostName}.conf";
     "kitty/themes" = "/kitty/themes";
     "carapace/carapace.toml" = "/carapace/carapace.toml";
     "equibop/settings.json" = "/equibop/settings.json";

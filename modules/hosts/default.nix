@@ -15,7 +15,24 @@ let
 
     in
     nixosSystem {
-      modules = [ self.modules.hosts.${hostname} ];
+      modules = [
+        self.modules.hosts.${hostname}
+        (
+          { pkgs, ... }:
+          {
+            nixpkgs.overlays = [
+              (_final: prev: {
+                system = prev.stdenv.hostPlatform.system;
+                master = import inputs.master {
+                  inherit (prev.stdenv.hostPlatform) system;
+                  config.allowUnfree = true;
+                };
+                swww = pkgs.awww;
+              })
+            ];
+          }
+        )
+      ];
       specialArgs = {
         pkgsForSystem = pkgsForSystem;
         scripts = pkgsForSystem.scripts or { };
