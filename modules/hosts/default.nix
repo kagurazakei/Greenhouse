@@ -39,6 +39,7 @@ let
         inherit
           self
           inputs
+          system
           ;
       };
     };

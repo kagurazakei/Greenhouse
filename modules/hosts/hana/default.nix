@@ -36,6 +36,7 @@ in
       self.modules.nixos.misc
       self.modules.nixos.packages
       self.modules.nixos.nvidia
+      self.modules.nixos.amd
       self.modules.nixos.kernel
       self.modules.nixos.security
       self.modules.services.scheduler

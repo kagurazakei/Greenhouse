@@ -133,19 +133,6 @@
       "url": "https://github.com/ghostty-org/ghostty/archive/1547dd667ab6d1f4ebcdc7282adc54c95752ee67.tar.gz",
       "hash": "sha256-dZFc+8az7BUIs8+v45XqNnY5G6oXEwVfVVHZQuATSGQ="
     },
-    "greeter": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Nomadcxx",
-        "repo": "sysc-greet"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "6741aee90568418dc6008f0bbbc04b5e29d0781d",
-      "url": "https://github.com/Nomadcxx/sysc-greet/archive/6741aee90568418dc6008f0bbbc04b5e29d0781d.tar.gz",
-      "hash": "sha256-r7oJA/wfME8u5bCSOlHnrNFMBTbDxyhlGsCzrNtvke4="
-    },
     "hjem": {
       "type": "Git",
       "repository": {
@@ -316,19 +303,6 @@
       "url": "https://github.com/nixos/nixpkgs/archive/bc57abace07689cfd34203aa5fb4027514895987.tar.gz",
       "hash": "sha256-iw3XDIG6xxk+AZTcawCLHf6i9i4tXRzLZEoV9xhRToQ="
     },
-    "noc-ambxst": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "kagurazakei",
-        "repo": "Ambxst"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "b1cd47fa9b321cbd5c4dc7b9ec4aef47c238e47c",
-      "url": "https://github.com/kagurazakei/Ambxst/archive/b1cd47fa9b321cbd5c4dc7b9ec4aef47c238e47c.tar.gz",
-      "hash": "sha256-U+NiLo+sgfqjIRqPk71dx649RGe+Qe90DvwQH6G22fI="
-    },
     "npins": {
       "type": "Git",
       "repository": {
@@ -341,19 +315,6 @@
       "revision": "4c33cb1ca91e226cafd18d1d9295c6da2d1318e3",
       "url": "https://github.com/andir/npins/archive/4c33cb1ca91e226cafd18d1d9295c6da2d1318e3.tar.gz",
       "hash": "sha256-E37++j2olEhxtyFRriErJNwuZow57ZboykfTLneNjus="
-    },
-    "nvim-flake": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "kagurazakei",
-        "repo": "nvim-flake"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "d92469613b234fa050b2500b21ce3db7e3fe2ac7",
-      "url": "https://github.com/kagurazakei/nvim-flake/archive/d92469613b234fa050b2500b21ce3db7e3fe2ac7.tar.gz",
-      "hash": "sha256-TUsYT3FILqZhwE/G9iFXdhjSy0UTSE9cGM1oGm8wBFg="
     },
     "nyx-loner": {
       "type": "Git",

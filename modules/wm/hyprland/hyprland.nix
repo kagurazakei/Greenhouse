@@ -14,6 +14,10 @@
     "hypr/animations" = "/hyprland/animations";
     "hypr/hyprcolors.conf" = "/hyprland/hyprcolors.conf";
     "hypr/hypridle.conf" = "/hyprland/hypridle.conf";
+    "ambxst/config/binds.json" = "/ambxst/binds.json";
+    "ambxst/binds.json" = "/ambxst/binds.json";
+    "ambxst/config/theme.json" = "/ambxst/theme.json";
+    "ambxst/config/compositor.json" = "/ambxst/compositor.json";
   };
   modules.wm.hyprland =
     {

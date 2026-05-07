@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, username, ... }:
 {
   modules.nixos.misc_agenix =
     {
@@ -17,7 +17,9 @@
       age.identityPaths = [
         "/etc/ssh/ssh_host_ed25519_key"
         "/persistent/etc/sops-nix/id_ed25519"
-        "/home/antonio/.ssh/id_ed25519"
-      ];
+        "/home/${username}/.ssh/id_ed25519"
+      ]
+      ++ builtins.map (username: "/home/${username}/.ssh/id_ed25519") [ username ];
+
     };
 }

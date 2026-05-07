@@ -5,6 +5,7 @@
       pkgs,
       lib,
       config,
+      system,
       ...
     }:
     let
@@ -13,6 +14,7 @@
           (pkgs.callPackage (inputs.npins + "/npins.nix") { })
         else
           pkgs.npins;
+      cursors = inputs.waifu-cursors.${system}.all;
     in
     {
       options = {
@@ -31,6 +33,7 @@
 
         environment.systemPackages = [
           npins
+          cursors
         ]
         ++ builtins.attrValues {
           inherit (zpkgs)
