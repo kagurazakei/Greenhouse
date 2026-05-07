@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "bba9d578b25376db509c0b5fda937e1bf0cdaead",
-      "url": "https://github.com/kagurazakei/Ambxst/archive/bba9d578b25376db509c0b5fda937e1bf0cdaead.tar.gz",
-      "hash": "sha256-R43LQAPP5H5uHaE66vaYhIXt8zpt850+V3fibY+MhKA="
+      "revision": "e02e7f7d8ea12443d325c8d04d2ecc477f327d32",
+      "url": "https://github.com/kagurazakei/Ambxst/archive/e02e7f7d8ea12443d325c8d04d2ecc477f327d32.tar.gz",
+      "hash": "sha256-0/Oq2682zdq8XTQ2l+mRj1yKydbpt1AoNk+fnFCA+KQ="
     },
     "blink-cmp": {
       "type": "Git",
@@ -389,11 +389,11 @@
         "owner": "outfoxxed",
         "repo": "quickshell"
       },
-      "branch": "0.2",
+      "branch": "master",
       "submodules": false,
-      "revision": "a1a150fab00a93ea983aaca5df55304bc837f51b",
-      "url": "https://git.outfoxxed.me/outfoxxed/quickshell/archive/a1a150fab00a93ea983aaca5df55304bc837f51b.tar.gz",
-      "hash": "sha256-e++Ogy91Sv7gGLMdAqZaBzbH/UmPWZ4GAt7VDCA66aU="
+      "revision": "6705e2da778d216e81dbdc3764a3f50e89bfd87d",
+      "url": "https://git.outfoxxed.me/outfoxxed/quickshell/archive/6705e2da778d216e81dbdc3764a3f50e89bfd87d.tar.gz",
+      "hash": "sha256-uVdqQIOzmMcHy1bUyF5NdZ3T5f1/5OVSNx3nIoXV6Os="
     },
     "rosep-fish": {
       "type": "Git",

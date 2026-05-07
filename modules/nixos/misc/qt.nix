@@ -37,6 +37,7 @@
         qt5.qtdeclarative
         qt5.qtgraphicaleffects
         libsForQt5.kdeclarative
+        quickshell
       ];
 
       hjem.users.${username}.packages = with pkgs; [
@@ -45,31 +46,19 @@
           accent = "red";
         })
       ];
-
       environment.variables = {
-        QT_PLUGIN_PATH = lib.makeSearchPathOutput "qt6" "lib/qt-6/plugins" [
-          pkgs.kdePackages.qqc2-desktop-style
+        QT_PLUGIN_PATH = [
+          "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtPluginPrefix}"
         ];
 
-        # This is what's missing - QML import paths for ambxst
-        QML2_IMPORT_PATH =
-          lib.makeSearchPathOutput "qt6" "lib/qt-6/qml" [
-            pkgs.kdePackages.qqc2-desktop-style
-            pkgs.kdePackages.kirigami
-            pkgs.kdePackages.kirigami-addons
-            pkgs.qt6.qtdeclarative
-            pkgs.qt6.qtbase
-            pkgs.qt6.qt5compat
-          ]
-          + ":"
-          + lib.makeSearchPathOutput "qt5" "lib/qt-5.15/qml" [
-            pkgs.libsForQt5.kdeclarative
-            pkgs.qt5.qtdeclarative
-            pkgs.qt5.qtgraphicaleffects
-            pkgs.libsForQt5.qt5.qtgraphicaleffects
-          ];
+        QML2_IMPORT_PATH = lib.concatStringsSep ":" [
+          "${pkgs.kdePackages.qqc2-desktop-style}/${pkgs.kdePackages.qtbase.qtQmlPrefix}"
+          "${pkgs.kdePackages.kirigami}/lib/qt-6/qml"
+          "${pkgs.qt6.qt5compat}/lib/qt6/qml"
+          "${pkgs.libsForQt5.qt5.qtgraphicaleffects}/lib/qt-5.15.18/qml"
+          "${pkgs.qt6.qtbase}/lib/qt6/qml"
+        ];
       };
-
       hj = {
         xdg.config.files = {
           "qt6ct/qt6ct.conf".source = config.impure-dots + "/qt6ct/qt6ct.conf";

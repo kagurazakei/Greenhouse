@@ -8,11 +8,13 @@ let
   inputSpec = {
     nixpkgs = inputs.nixpkgs;
     hjem = inputs.hjem;
-    neovim.inputs.nixpkgs.follows = "nixpkgs";
-    hjem-rum.follows = "hjem";
-    hjem-rum.inputs.nixpkgs.follows = "nixpkgs";
-    quickshell = inputs.quickshell;
-    ambxst.follows = "quickshell";
+    neovim-nightly = {
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hjem-rum = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hjem.follows = "hjem";
+    };
   };
   outputs = resolvedInputs: {
     resolved = resolvedInputs;

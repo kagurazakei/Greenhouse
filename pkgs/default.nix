@@ -20,8 +20,8 @@ lib.fix (
     viu = callPackage ./viu.nix { };
     qt6ct = callPackage ./qt6ct.nix { };
     gtk-themes = callPackage ./gtk-themes.nix { };
-    ambxst = callPackage ./ambxst.nix { };
     equibop = callPackage ./equibop/package.nix { };
+    ambxst = callPackage ./ambxst.nix { };
     scripts = {
       npins-show = customCallPackage ./scripts/npins-show.nix { };
       lutui = customCallPackage ./scripts/lutui.nix { };
