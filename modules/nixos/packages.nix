@@ -14,7 +14,7 @@
           (pkgs.callPackage (inputs.npins + "/npins.nix") { })
         else
           pkgs.npins;
-      cursors = inputs.waifu-cursors.${system}.all;
+      cursors = inputs.waifu-cursors.packages.${system}.all;
     in
     {
       options = {
