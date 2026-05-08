@@ -459,10 +459,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v3.3.7",
-      "revision": "1ce2d2740d2a8530bb62f3b9ecf5dee2706f20bb",
-      "url": "https://api.github.com/repos/viu-media/viu/tarball/refs/tags/v3.3.7",
-      "hash": "sha256-BYxkMHB5xzyyOtx2u/xvCmbzqXv5Towe1P6Zld+YtTo="
+      "version": "v3.5.0",
+      "revision": "6fbceab36828ccbdeaeb0e827f7879238c82a52c",
+      "url": "https://api.github.com/repos/viu-media/viu/tarball/refs/tags/v3.5.0",
+      "hash": "sha256-C/50pns8HMOVkdwruYeAKqDX3M0MpHy8RGcQJ8uTXVk="
     },
     "waifu-cursors": {
       "type": "Git",

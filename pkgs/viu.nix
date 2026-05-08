@@ -7,7 +7,7 @@
 
 let
   sources = import ../npins;
-  version = "3.3.7";
+  version = "nightly";
 
   wrappedMpv = writeShellScriptBin "mpv" ''
     export __NV_PRIME_RENDER_OFFLOAD=0  # Force Intel GPU

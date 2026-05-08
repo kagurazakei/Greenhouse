@@ -38,7 +38,6 @@ in
       self.modules.nixos.misc
       self.modules.nixos.packages
       self.modules.nixos.intel
-      self.modules.nixos.nvidia
       self.modules.nixos.kernel
       self.modules.nixos.security
       self.modules.services.scheduler
@@ -90,14 +89,6 @@ in
     };
     nixos = {
       graphics.intel.hwAccelDriver = "media-driver";
-      graphics.nvidia = {
-        hybrid = {
-          enable = true;
-          igpu.vendor = "intel";
-          igpu.port = "PCI:0:2:0";
-          dgpu.port = "PCI:1:0:0";
-        };
-      };
     };
     networking.hostName = hostname;
     system.stateVersion = "26.05";

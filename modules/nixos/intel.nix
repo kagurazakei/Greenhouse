@@ -47,7 +47,19 @@
 
       config = {
         hardware.graphics.extraPackages = cfg.runtimePackages ++ cfg.driverPackages;
-
+        environment.systemPackages = with pkgs; [
+          mesa
+          intel-gpu-tools
+          libva-utils
+          vulkan-loader
+          vulkan-tools
+          libva-utils
+          egl-wayland
+          intel-vaapi-driver
+          libva-vdpau-driver
+          libvdpau-va-gl
+          intel-gpu-tools
+        ];
         # enables frame buffer compression
         boot.kernelParams = [
           "i915.enable_fbc=1"

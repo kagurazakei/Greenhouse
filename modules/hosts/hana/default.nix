@@ -64,7 +64,7 @@ in
           owner = "antonio";
         };
         secret2 = {
-          file = self.paths.secrets + /kagura-access-token.age;
+          file = self.paths.secrets + /hana-access-token.age;
           owner = "antonio";
           mode = "0500";
           path = "/etc/nix/nix-access-token.conf";
