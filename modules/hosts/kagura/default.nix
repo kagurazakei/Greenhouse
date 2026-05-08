@@ -13,6 +13,8 @@ in
       self.modules.nixos.misc_steam
       self.modules.programs.dots_fish
       self.modules.programs.dots_hyprland
+      self.modules.programs.dots_niri
+      self.modules.programs.dots_mango
       self.modules.programs.dots_impure
       self.modules.programs.dots_yazi
       self.modules.programs.spicetify
@@ -46,6 +48,7 @@ in
       self.modules.wm._
       self.modules.wm.hyprland
       self.modules.wm.niri
+      self.modules.wm.mango
 
       self.modules.hjem._
       self.modules.hjem.antonio

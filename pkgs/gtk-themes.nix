@@ -7,21 +7,12 @@ in
 pkgs.stdenvNoCC.mkDerivation rec {
   pname = "cat-gtk-themes";
   version = "git";
-
   src = sources.cat-gtk-themes;
-
   dontBuild = true;
-
   installPhase = ''
     runHook preInstall
-
-    # Create install directories
     mkdir -p $out/share/themes
     mkdir -p $out/share/icons
-
-    # -----------------------
-    # Install GTK themes
-    # -----------------------
     if [ -d themes ]; then
       for dir in themes/*; do
         if [ -d "$dir" ]; then
@@ -29,10 +20,6 @@ pkgs.stdenvNoCC.mkDerivation rec {
         fi
       done
     fi
-
-    # -----------------------
-    # Install icon themes
-    # -----------------------
     if [ -d icons ]; then
       for f in icons/*; do
         if [ -d "$f" ]; then

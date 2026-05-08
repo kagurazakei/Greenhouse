@@ -1,9 +1,16 @@
 {
   self,
   inputs,
+  utils,
+  username,
   ...
 }:
 {
+
+  modules.programs.dots_niri = utils.mkDotsModule username {
+    "niri/config.kdl" = d: d.dotsDir + "/niri/${d.lib.toLower d.config.networking.hostName}.kdl";
+    "niri/noctalia.kdl" = "/niri/noctalia.kdl";
+  };
   modules.wm.niri =
     {
       lib,
@@ -12,8 +19,9 @@
       ...
     }:
     {
-      imports = [ self.modules.wm._ ];
-
+      imports = [
+        self.modules.wm._
+      ];
       options = {
         wm.niri.enable = lib.mkOption {
           type = lib.types.bool;
@@ -46,7 +54,6 @@
 
         environment.systemPackages = [
           pkgs.fuzzel
-          pkgs.alacritty
           pkgs.xwayland-satellite
         ];
       };

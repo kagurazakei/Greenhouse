@@ -39,6 +39,8 @@
             "https://loneros.cachix.org"
             "https://heitor.cachix.org"
             "https://attic.xuyh0120.win/lantian"
+            "https://hyprland.cachix.org"
+            "https://niri-nix.cachix.org"
           ];
           trusted-public-keys = [
             "kagurazakei.cachix.org-1:L150C/szoC/r6LOupCWQRU5IqdWIBl926O1HpiBVEkw="
@@ -47,6 +49,8 @@
             "loneros.cachix.org-1:dVCECfW25sOY3PBHGBUwmQYrhRRK2+p37fVtycnedDU="
             "heitor.cachix.org-1:IZ1ydLh73kFtdv+KfcsR4WGPkn+/I926nTGhk9O9AxI="
             "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+            "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+            "niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="
           ];
         };
 

@@ -18,9 +18,6 @@ workspace "stash" {
 }
 spawn-sh-at-startup "niri-scratchpad daemon"
 binds {
-    Mod+Shift+Return {
-        spawn "niri-scratchpad" "create" "1" "--as-float"
-    }
     Ctrl+Alt+L hotkey-overlay-title="Lock Screen" {
         spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"
     }
@@ -35,9 +32,6 @@ binds {
     }
     Mod+N hotkey-overlay-title="Bar: Toggle (Primary)" {
         spawn "noctalia-shell" "ipc" "call" "bar" "toggle"
-    }
-    Mod+O hotkey-overlay-title="Wallpaper: Next" {
-        spawn sh -c "stash list | TERMINAL=kitty fuzzel --dmenu --prompt 'Clipboard History' | stash decode | wl-copy"
     }
     Mod+V hotkey-overlay-title="Clipboard: Toggle" {
         spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"
@@ -59,9 +53,6 @@ binds {
     }
     Mod+I {
         spawn "fuzzel-clip"
-    }
-    Mod+Shift+Return {
-        spawn "wezterm"
     }
     XF86AudioLowerVolume allow-when-locked=true {
         spawn "noctalia-shell" "ipc" "call" "volume" "decrease"

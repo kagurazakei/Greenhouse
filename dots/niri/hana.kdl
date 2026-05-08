@@ -18,9 +18,6 @@ environment {
     XDG_SESSION_TYPE "wayland"
 }
 binds {
-    Mod release=true {
-        spawn-sh "pkill fuzzel || fuzzel -I"
-    }
     Ctrl+Print {
         screenshot-window
     }
@@ -254,23 +251,14 @@ window-rule {
     match app-id="^quickshell$"
     match app-id="^noctalia-shell$"
     opacity 0.85
-    blur {
-        on
-    }
 }
 window-rule {
     match is-focused=false
     opacity 0.8
-    blur {
-        on
-    }
 }
 window-rule {
     match is-floating=true
     shadow {
-        on
-    }
-    blur {
         on
     }
 }
@@ -290,9 +278,6 @@ window-rule {
         active-color "#f38ba8"
         inactive-color "#a9b1d600"
     }
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="org.telegram.desktop"
@@ -306,16 +291,10 @@ window-rule {
     match app-id="^(zen|firefox|chromium-browser|chrome-.*|zen-.*)$"
     match app-id="^(xdg-desktop-portal-gtk)$"
     scroll-factor 0.85
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(info.febvre.Komikku)$"
     scroll-factor 1.58
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
@@ -324,9 +303,6 @@ window-rule {
     match title="^Discord Popout$"
     open-floating true
     default-floating-position relative-to="top-right" x=32 y=32
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(org.wezfurlong.wezterm)$"
@@ -335,9 +311,6 @@ window-rule {
     match app-id="^(firefox-nightly)$"
     match app-id="^(zen-browser)$"
     opacity 0.85
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(dropdown)$"
@@ -422,18 +395,12 @@ window-rule {
 window-rule {
     match app-id="^(org.wezfurlong.wezterm|ghostty|Kvantum|dolphin|niri)$"
     open-maximized false
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(zen|equibop|firefox-nightly|firefox|chromium-browser|edge|chrome-.*|zen-.*)$"
     open-maximized false
     default-column-width {
         proportion 0.7
-    }
-    blur {
-        on
     }
 }
 window-rule {
@@ -455,11 +422,6 @@ layer-rule {
     match namespace="^noctalia-wallpaper*"
     match namespace="^quickshell*"
     place-within-backdrop true
-    blur {
-        on
-        ignore-alpha 0.85
-        x-ray true
-    }
 }
 workspace "general" {
     layout {
@@ -510,11 +472,6 @@ layout {
         top 5
         bottom 5
     }
-    blur {
-        noise 0.05
-        passes 2
-        radius 5
-    }
     focus-ring {
         off
     }
@@ -561,12 +518,4 @@ hotkey-overlay {
     skip-at-startup
 }
 include "./noctalia.kdl"
- // include "./dms/binds.kdl"
-// include "./dms/outputs.kdl"
-// include "./dms/windowrules.kdl"
-// include "./dms/wpblur.kdl"
-// include "./dms/alttab.kdl"
-// include "./dms/layout.kdl"
-// include "./dms/colors.kdl"
-// include "./dms/cursor.kdl"
 

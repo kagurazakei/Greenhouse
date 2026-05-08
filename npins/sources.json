@@ -181,9 +181,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "21fa9b2ee27227c964fdeb8090d98255edb89bec",
-      "url": "https://github.com/hyprwm/Hyprland/archive/21fa9b2ee27227c964fdeb8090d98255edb89bec.tar.gz",
-      "hash": "sha256-7wJkNlQ9Sc2FwFRc6O7Kmq32I7rk7H8pttU4tVfVqjw="
+      "revision": "58833eb1d79d7f03402cee0730c309b79f2e4501",
+      "url": "https://github.com/hyprwm/Hyprland/archive/58833eb1d79d7f03402cee0730c309b79f2e4501.tar.gz",
+      "hash": "sha256-1kLjT55rniQf8k4PE4ZflrgN9YtIc/ZvllKx5dUNaE0="
     },
     "impermanence": {
       "type": "Git",
@@ -197,6 +197,19 @@
       "revision": "7b1d382faf603b6d264f58627330f9faa5cba149",
       "url": "https://github.com/nix-community/impermanence/archive/7b1d382faf603b6d264f58627330f9faa5cba149.tar.gz",
       "hash": "sha256-03+JxvzmfwRu+5JafM0DLbxgHttOQZkUtDWBmeUkN8Y="
+    },
+    "mango": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mangowm",
+        "repo": "mango"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "18fa5a22c2236ca8efb53e1dd23366f01c21a5ec",
+      "url": "https://github.com/mangowm/mango/archive/18fa5a22c2236ca8efb53e1dd23366f01c21a5ec.tar.gz",
+      "hash": "sha256-B6bhitxPXuO2WJ2ddp5s1agPypLrqJSx9Lc8O0AYk0M="
     },
     "master": {
       "type": "Git",
@@ -250,6 +263,20 @@
       "url": "https://github.com/yalter/niri/archive/1f07cffa9f355298a31d7efe1b400ede93a97728.tar.gz",
       "hash": "sha256-1TlpdT0WYyBGtUS3PH4oXHUmdno2EUh2TfHadK2BmJo="
     },
+    "niri-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "Forgejo",
+        "server": "https://codeberg.org/",
+        "owner": "BANanaD3V",
+        "repo": "niri-nix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "ef089d37a919e2782892686979535e9008e956a2",
+      "url": "https://codeberg.org/BANanaD3V/niri-nix/archive/ef089d37a919e2782892686979535e9008e956a2.tar.gz",
+      "hash": "sha256-LqAs3mdw8hLmtKSjzAaTq4PT66CTTfx9LvGPw56/CIQ="
+    },
     "nix-cachyos-kernel": {
       "type": "Git",
       "repository": {
@@ -299,9 +326,9 @@
       },
       "branch": "nixpkgs-unstable",
       "submodules": false,
-      "revision": "bc57abace07689cfd34203aa5fb4027514895987",
-      "url": "https://github.com/nixos/nixpkgs/archive/bc57abace07689cfd34203aa5fb4027514895987.tar.gz",
-      "hash": "sha256-iw3XDIG6xxk+AZTcawCLHf6i9i4tXRzLZEoV9xhRToQ="
+      "revision": "68a8af93ff4297686cb68880845e61e5e2e41d92",
+      "url": "https://github.com/nixos/nixpkgs/archive/68a8af93ff4297686cb68880845e61e5e2e41d92.tar.gz",
+      "hash": "sha256-pYEytCNic/czazbV9r3tbQ6BZzqRBg/41x2dIC5ymOo="
     },
     "npins": {
       "type": "Git",

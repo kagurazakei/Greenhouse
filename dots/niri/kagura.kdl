@@ -4,7 +4,7 @@ environment {
     ELECTRON_ENABLE_HARDWARE_ACCELERATION "1"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     GDK_BACKEND "wayland,x11"
-    GTK_THEME "CatppuccinMocha-zk"
+    GTK_THEME "oomox-snazzy"
     JAVA_AWT_WM_NONEREPARENTING "1"
     MOZ_ENABLE_WAYLAND "1"
     NIXOS_OZONE_WL "1"
@@ -18,9 +18,6 @@ environment {
     XDG_SESSION_TYPE "wayland"
 }
 binds {
-    Mod release=true {
-        spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
-    }
     Ctrl+Print {
         screenshot-window
     }
@@ -139,16 +136,13 @@ binds {
         fullscreen-window
     }
     Mod+Shift+X {
-        spawn "ani-cli" "--rofi"
+        spawn "kitty" "-e" "viu"
     }
     Mod+Space {
         toggle-window-floating
     }
     Mod+T {
         spawn "dolphin"
-    }
-    Mod+O {
-        spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"
     }
     Mod+Tab {
         toggle-overview
@@ -201,7 +195,7 @@ animations {
         spring damping-ratio=3.75 stiffness=523 epsilon=0.0001
     }
     window-resize {
-        custom-shader "\n            vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {\n                vec3 coords_tex_next = niri_geo_to_tex_next * coords_curr_geo;\n                vec4 color = texture2D(niri_tex_next, coords_tex_next.st);\n                return color;\n            }\n        "
+        custom-shader "\n            float hash(vec2 p) {\n                return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);\n            }\n\n            float noise(vec2 p) {\n                vec2 i = floor(p);\n                vec2 f = fract(p);\n                f = f * f * (3.0 - 2.0 * f);\n                float a = hash(i);\n                float b = hash(i + vec2(1.0, 0.0));\n                float c = hash(i + vec2(0.0, 1.0));\n                float d = hash(i + vec2(1.0, 1.0));\n                return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n            }\n\n            float fbm(vec2 p) {\n                float v = 0.0;\n                float amp = 0.5;\n                for (int i = 0; i < 6; i++) {\n                    v += amp * noise(p);\n                    p *= 2.0;\n                    amp *= 0.5;\n                }\n                return v;\n            }\n\n            float warpedFbm(vec2 p, float t) {\n                vec2 q = vec2(fbm(p + vec2(0.0, 0.0)),\n                              fbm(p + vec2(5.2, 1.3)));\n\n                vec2 r = vec2(fbm(p + 6.0 * q + vec2(1.7, 9.2) + 0.25 * t),\n                              fbm(p + 6.0 * q + vec2(8.3, 2.8) + 0.22 * t));\n\n                vec2 s = vec2(fbm(p + 5.0 * r + vec2(3.1, 7.4) + 0.18 * t),\n                              fbm(p + 5.0 * r + vec2(6.7, 0.9) + 0.2 * t));\n\n                return fbm(p + 6.0 * s);\n            }\n\n            vec4 close_color(vec3 coords_geo, vec3 size_geo) {\n                float p = niri_clamped_progress;\n                vec2 uv = coords_geo.xy;\n                float seed = niri_random_seed * 100.0;\n\n                float t = p * 12.0 + seed;\n\n                float fluid = warpedFbm(uv * 2.0 + seed, t);\n\n                vec2 center = uv - 0.5;\n                float dist = length(center * vec2(1.0, 0.7));\n\n                float dissolve = (1.0 - dist) * 1.2 + fluid * 0.7;\n                float remain = smoothstep(dissolve + 0.5, dissolve - 0.5, p * 1.8);\n\n                float distort_strength = p * p * 0.4;\n                vec2 wq = vec2(fbm(uv * 2.0 + vec2(0.0, t * 0.2)),\n                               fbm(uv * 2.0 + vec2(5.2, t * 0.2)));\n                vec2 wr = vec2(fbm(uv * 2.0 + 4.0 * wq + vec2(1.7, 9.2)),\n                               fbm(uv * 2.0 + 4.0 * wq + vec2(8.3, 2.8)));\n                vec2 warped_uv = uv + (wr - 0.5) * distort_strength;\n\n                vec3 tex_coords = niri_geo_to_tex * vec3(warped_uv, 1.0);\n                vec4 color = texture2D(niri_tex, tex_coords.st);\n\n                float tail = smoothstep(1.0, 0.8, p);\n                return color * remain * tail;\n            }\n        "
     }
     config-notification-open-close {
         spring damping-ratio=0.65 stiffness=923 epsilon=0.001
@@ -242,14 +236,14 @@ input {
     focus-follows-mouse
     workspace-auto-back-and-forth
 }
-output "eDP-1" {
+output "HDMI-A-1" {
     scale 1.0
     transform "normal"
-    mode "2160x1440"
+    mode "1920x1080"
 }
 window-rule {
     draw-border-with-background false
-    geometry-corner-radius 5.0 5.0 5.0 5.0
+    geometry-corner-radius 2.0 2.0 2.0 2.0
     clip-to-geometry true
 }
 window-rule {
@@ -257,23 +251,14 @@ window-rule {
     match app-id="^quickshell$"
     match app-id="^noctalia-shell$"
     opacity 0.85
-    blur {
-        on
-    }
 }
 window-rule {
     match is-focused=false
     opacity 0.8
-    blur {
-        on
-    }
 }
 window-rule {
     match is-floating=true
     shadow {
-        on
-    }
-    blur {
         on
     }
 }
@@ -293,9 +278,6 @@ window-rule {
         active-color "#f38ba8"
         inactive-color "#a9b1d600"
     }
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="org.telegram.desktop"
@@ -309,16 +291,10 @@ window-rule {
     match app-id="^(zen|firefox|chromium-browser|chrome-.*|zen-.*)$"
     match app-id="^(xdg-desktop-portal-gtk)$"
     scroll-factor 0.85
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(info.febvre.Komikku)$"
     scroll-factor 1.58
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="firefox$" title="^Picture-in-Picture$"
@@ -327,18 +303,14 @@ window-rule {
     match title="^Discord Popout$"
     open-floating true
     default-floating-position relative-to="top-right" x=32 y=32
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(org.wezfurlong.wezterm)$"
     match app-id="^(kitty)$"
     match app-id="^(com.mitchellh.ghostty)$"
-    opacity 0.86
-    blur {
-        on
-    }
+    match app-id="^(firefox-nightly)$"
+    match app-id="^(zen-browser)$"
+    opacity 0.85
 }
 window-rule {
     match app-id="^(dropdown)$"
@@ -423,18 +395,12 @@ window-rule {
 window-rule {
     match app-id="^(org.wezfurlong.wezterm|ghostty|Kvantum|dolphin|niri)$"
     open-maximized false
-    blur {
-        on
-    }
 }
 window-rule {
     match app-id="^(zen|equibop|firefox-nightly|firefox|chromium-browser|edge|chrome-.*|zen-.*)$"
     open-maximized false
     default-column-width {
         proportion 0.7
-    }
-    blur {
-        on
     }
 }
 window-rule {
@@ -456,11 +422,6 @@ layer-rule {
     match namespace="^noctalia-wallpaper*"
     match namespace="^quickshell*"
     place-within-backdrop true
-    blur {
-        on
-        ignore-alpha 0.85
-        x-ray true
-    }
 }
 workspace "general" {
     layout {
@@ -511,17 +472,12 @@ layout {
         top 5
         bottom 5
     }
-    blur {
-        noise 0.05
-        passes 2
-        radius 5
-    }
     focus-ring {
         off
     }
     border {
-        width 4
-        active-gradient from="#f38ba8" to="#b2e7ad" to="#ffab91" to="#78a9ff" to="#dbe897" angle=100 in="oklch decreasing hue"
+        width 3
+        active-gradient angle=120 from="#a6e3a1" to="#f9e2af" to="#f38ba8" to="#89b4fa" in="oklch longer hue"
         inactive-gradient angle=180 from="#414868" to="#1e1e2e" in="oklch shorter hue"
         urgent-gradient from="#800" to="#a33" angle=45
     }
