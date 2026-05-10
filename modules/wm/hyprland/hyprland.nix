@@ -8,11 +8,11 @@
 {
 
   modules.programs.dots_hyprland = utils.mkDotsModule username {
-    "hypr/hyprland.conf" = "/hyprland/hyprland.conf";
-    "hypr/keybinds.conf" = "/hyprland/keybinds.conf";
-    "hypr/windowRules.conf" = "/hyprland/windowRules.conf";
+    "hypr/hyprland.lua" = "/hyprland/hyprland.lua";
+    "hypr/keybinds.lua" = "/hyprland/keybinds.lua";
+    "hypr/windowRules.lua" = "/hyprland/windowRules.lua";
     "hypr/animations" = "/hyprland/animations";
-    "hypr/hyprcolors.conf" = "/hyprland/hyprcolors.conf";
+    "hypr/hyprcolors.lua" = "/hyprland/hyprcolors.lua";
     "hypr/hypridle.conf" = "/hyprland/hypridle.conf";
     "ambxst/binds.json" = "/ambxst/binds.json";
     "ambxst/config/theme.json" = "/ambxst/theme.json";
