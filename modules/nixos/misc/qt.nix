@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, zpkgs, ... }:
 {
   modules.nixos.misc =
     {
@@ -37,7 +37,7 @@
         qt5.qtdeclarative
         qt5.qtgraphicaleffects
         libsForQt5.kdeclarative
-        quickshell
+        zpkgs.qt6ct
       ];
 
       hjem.users.${username}.packages = with pkgs; [

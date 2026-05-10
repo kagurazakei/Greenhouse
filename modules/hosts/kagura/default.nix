@@ -1,7 +1,5 @@
 {
   self,
-  username,
-  inputs,
   ...
 }:
 let
@@ -18,7 +16,7 @@ in
       self.modules.programs.dots_impure
       self.modules.programs.dots_yazi
       self.modules.programs.spicetify
-      self.modules.programs.sysc-greet
+      self.modules.programs.dms-greeter
       self.modules.programs.ambxst
       self.modules.programs.git
       self.modules.programs.dolphin

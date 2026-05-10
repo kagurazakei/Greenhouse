@@ -9,13 +9,26 @@ let
     nixpkgs = inputs.nixpkgs;
     hjem = inputs.hjem;
     flake-utils = inputs.flake-utils;
-    greeter.inputs.utils.follows = "flake-utils";
+    quickshell = inputs.quickshell;
+    hyprland = inputs.hyprland;
+    niri = inputs.niri;
+    crane = inputs.crane;
+    sysc-greet = {
+      inputs.utils.follows = "flake-utils";
+      inputs.hyprland.follows = "hyprland";
+      inputs.niri.follows = "niri";
+    };
     neovim-nightly = {
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-rum = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hjem.follows = "hjem";
+    };
+    ambxst.quickshell.follows = "quickshell";
+    tuigreet = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.crane.follows = "crane";
     };
   };
   outputs = with-inputs: {

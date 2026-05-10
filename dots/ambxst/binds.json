@@ -1,50 +1,70 @@
 {
     "ambxst": {
         "assistant": {
-            "argument": "ambxst run assistant",
-            "dispatcher": "exec",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.assistant"
+            },
             "key": "A",
             "modifiers": [
                 "SUPER"
             ]
         },
         "clipboard": {
-            "argument": "ambxst run clipboard",
-            "dispatcher": "exec",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.clipboard"
+            },
             "key": "V",
             "modifiers": [
                 "SUPER"
             ]
         },
         "dashboard": {
-            "argument": "ambxst run dashboard",
-            "dispatcher": "exec",
-            "flags": "",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.dashboard",
+                "layouts": [
+                ]
+            },
             "key": "M",
             "modifiers": [
                 "SUPER"
             ]
         },
         "emoji": {
-            "argument": "ambxst run emoji",
-            "dispatcher": "exec",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.emoji"
+            },
             "key": "PERIOD",
             "modifiers": [
                 "SUPER"
             ]
         },
         "launcher": {
-            "argument": "ambxst run launcher",
-            "dispatcher": "exec",
-            "flags": "r",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.launcher",
+                "layouts": [
+                ]
+            },
             "key": "Super_L",
             "modifiers": [
                 "SUPER"
             ]
         },
         "notes": {
-            "argument": "ambxst run notes",
-            "dispatcher": "exec",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.notes"
+            },
             "key": "N",
             "modifiers": [
                 "SUPER"
@@ -52,9 +72,11 @@
         },
         "system": {
             "config": {
-                "argument": "ambxst run config",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.config"
+                },
                 "key": "C",
                 "modifiers": [
                     "SUPER",
@@ -62,9 +84,11 @@
                 ]
             },
             "lens": {
-                "argument": "ambxst run lens",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.lens"
+                },
                 "key": "A",
                 "modifiers": [
                     "SUPER",
@@ -72,9 +96,11 @@
                 ]
             },
             "lockscreen": {
-                "argument": "loginctl lock-session",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "system.lock"
+                },
                 "key": "L",
                 "modifiers": [
                     "CTRL",
@@ -82,27 +108,33 @@
                 ]
             },
             "overview": {
-                "argument": "ambxst run overview",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.overview"
+                },
                 "key": "TAB",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "powermenu": {
-                "argument": "ambxst run powermenu",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.powermenu"
+                },
                 "key": "BACKSPACE",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "quit": {
-                "argument": "ambxst quit",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.quit"
+                },
                 "key": "B",
                 "modifiers": [
                     "SUPER",
@@ -111,9 +143,11 @@
                 ]
             },
             "reload": {
-                "argument": "ambxst reload",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.reload"
+                },
                 "key": "B",
                 "modifiers": [
                     "SUPER",
@@ -121,9 +155,11 @@
                 ]
             },
             "screenrecord": {
-                "argument": "ambxst run screenrecord",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.screenrecord"
+                },
                 "key": "R",
                 "modifiers": [
                     "SUPER",
@@ -131,9 +167,11 @@
                 ]
             },
             "screenshot": {
-                "argument": "ambxst run screenshot",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.screenshot"
+                },
                 "key": "S",
                 "modifiers": [
                     "SUPER",
@@ -141,9 +179,11 @@
                 ]
             },
             "tools": {
-                "argument": "ambxst run tools",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.tools"
+                },
                 "key": "S",
                 "modifiers": [
                     "SUPER"
@@ -151,16 +191,22 @@
             }
         },
         "tmux": {
-            "argument": "ambxst run tmux",
-            "dispatcher": "exec",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.tmux"
+            },
             "key": "T",
             "modifiers": [
                 "SUPER"
             ]
         },
         "wallpapers": {
-            "argument": "ambxst run wallpapers",
-            "dispatcher": "exec",
+            "action": {
+                "args": {
+                },
+                "id": "ambxst.wallpapers"
+            },
             "key": "COMMA",
             "modifiers": [
                 "SUPER"
@@ -188,6 +234,226 @@
                 }
             ],
             "name": "Close Window"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "1"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "1",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 1"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "2"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "2",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 2"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "3"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "3",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 3"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "4"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "4",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 4"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "5"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "5",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 5"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "6"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "6",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 6"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "7"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "7",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 7"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "8"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "8",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 8"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "9"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "9",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 9"
+        },
+        {
+            "actions": [
+                {
+                    "args": {
+                        "index": "10"
+                    },
+                    "id": "workspace.switch",
+                    "layouts": [
+                    ]
+                }
+            ],
+            "enabled": true,
+            "keys": [
+                {
+                    "key": "0",
+                    "modifiers": [
+                        "SUPER"
+                    ]
+                }
+            ],
+            "name": "Workspace 10"
         },
         {
             "actions": [
@@ -418,236 +684,6 @@
                 }
             ],
             "name": "Move to Workspace 10"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "1"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "1",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 1 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "2"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "2",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 2 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "3"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "3",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 3 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "4"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "4",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 4 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "5"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "5",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 5 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "6"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "6",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 6 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "7"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "7",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 7 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "8"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "8",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 8 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "9"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "9",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 9 (Silent)"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                        "index": "10"
-                    },
-                    "id": "workspace.move-window-silent",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "0",
-                    "modifiers": [
-                        "SUPER",
-                        "ALT"
-                    ]
-                }
-            ],
-            "name": "Move to Workspace 10 (Silent)"
         },
         {
             "actions": [
@@ -924,106 +960,6 @@
                 }
             ],
             "name": "Stop Playback"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                    },
-                    "id": "audio.volume-up",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "XF86AudioRaiseVolume",
-                    "modifiers": [
-                    ]
-                }
-            ],
-            "name": "Volume Up"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                    },
-                    "id": "audio.volume-down",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "XF86AudioLowerVolume",
-                    "modifiers": [
-                    ]
-                }
-            ],
-            "name": "Volume Down"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                    },
-                    "id": "audio.mute-toggle",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "XF86AudioMute",
-                    "modifiers": [
-                    ]
-                }
-            ],
-            "name": "Mute Audio"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                    },
-                    "id": "brightness.up",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "XF86MonBrightnessUp",
-                    "modifiers": [
-                    ]
-                }
-            ],
-            "name": "Brightness Up"
-        },
-        {
-            "actions": [
-                {
-                    "args": {
-                    },
-                    "id": "brightness.down",
-                    "layouts": [
-                    ]
-                }
-            ],
-            "enabled": true,
-            "keys": [
-                {
-                    "key": "XF86MonBrightnessDown",
-                    "modifiers": [
-                    ]
-                }
-            ],
-            "name": "Brightness Down"
         },
         {
             "actions": [
@@ -2017,72 +1953,88 @@
     "defaultAmbxstBinds": {
         "ambxst": {
             "assistant": {
-                "argument": "ambxst run assistant",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.assistant"
+                },
                 "key": "A",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "clipboard": {
-                "argument": "ambxst run clipboard",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.clipboard"
+                },
                 "key": "V",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "dashboard": {
-                "argument": "ambxst run dashboard",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.dashboard"
+                },
                 "key": "D",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "emoji": {
-                "argument": "ambxst run emoji",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.emoji"
+                },
                 "key": "PERIOD",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "launcher": {
-                "argument": "ambxst run launcher",
-                "dispatcher": "exec",
-                "flags": "r",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.launcher"
+                },
                 "key": "Super_L",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "notes": {
-                "argument": "ambxst run notes",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.notes"
+                },
                 "key": "N",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "tmux": {
-                "argument": "ambxst run tmux",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.tmux"
+                },
                 "key": "T",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "wallpapers": {
-                "argument": "ambxst run wallpapers",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.wallpapers"
+                },
                 "key": "COMMA",
                 "modifiers": [
                     "SUPER"
@@ -2091,9 +2043,11 @@
         },
         "system": {
             "config": {
-                "argument": "ambxst run config",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.config"
+                },
                 "key": "C",
                 "modifiers": [
                     "SUPER",
@@ -2101,9 +2055,11 @@
                 ]
             },
             "lens": {
-                "argument": "ambxst run lens",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.lens"
+                },
                 "key": "A",
                 "modifiers": [
                     "SUPER",
@@ -2111,36 +2067,44 @@
                 ]
             },
             "lockscreen": {
-                "argument": "loginctl lock-session",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "system.lock"
+                },
                 "key": "L",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "overview": {
-                "argument": "ambxst run overview",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.overview"
+                },
                 "key": "TAB",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "powermenu": {
-                "argument": "ambxst run powermenu",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.powermenu"
+                },
                 "key": "ESCAPE",
                 "modifiers": [
                     "SUPER"
                 ]
             },
             "quit": {
-                "argument": "ambxst quit",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.quit"
+                },
                 "key": "B",
                 "modifiers": [
                     "SUPER",
@@ -2149,9 +2113,11 @@
                 ]
             },
             "reload": {
-                "argument": "ambxst reload",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.reload"
+                },
                 "key": "B",
                 "modifiers": [
                     "SUPER",
@@ -2159,9 +2125,11 @@
                 ]
             },
             "screenrecord": {
-                "argument": "ambxst run screenrecord",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.screenrecord"
+                },
                 "key": "R",
                 "modifiers": [
                     "SUPER",
@@ -2169,9 +2137,11 @@
                 ]
             },
             "screenshot": {
-                "argument": "ambxst run screenshot",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.screenshot"
+                },
                 "key": "S",
                 "modifiers": [
                     "SUPER",
@@ -2179,9 +2149,11 @@
                 ]
             },
             "tools": {
-                "argument": "ambxst run tools",
-                "dispatcher": "exec",
-                "flags": "",
+                "action": {
+                    "args": {
+                    },
+                    "id": "ambxst.tools"
+                },
                 "key": "S",
                 "modifiers": [
                     "SUPER"

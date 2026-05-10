@@ -37,7 +37,6 @@
         ]
         ++ builtins.attrValues {
           inherit (zpkgs)
-            qt6ct
             gtk-themes
             viu
             equibop
