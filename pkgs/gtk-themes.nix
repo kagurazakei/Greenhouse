@@ -1,9 +1,7 @@
 {
   pkgs,
+  sources,
 }:
-let
-  sources = import ../npins;
-in
 pkgs.stdenvNoCC.mkDerivation rec {
   pname = "cat-gtk-themes";
   version = "git";

@@ -23,6 +23,7 @@ in
       self.modules.programs.dolphin
       self.modules.programs.fish
       self.modules.programs.impermanence
+      self.modules.programs.agenix
       self.modules.programs.yazi
       self.modules.programs.mpv
       self.modules.nixos.trash
@@ -43,7 +44,6 @@ in
       self.modules.services.scheduler
       self.modules.services.openssh
       self.modules.services.flatpak
-      self.modules.nixos.misc_agenix
       self.modules.wm._
       self.modules.wm.hyprland
       self.modules.wm.niri
@@ -53,7 +53,7 @@ in
 
       ./+hardware.nix
     ];
-    kagura = {
+    greeny = {
       secrets = {
         antonioPass = {
           file = self.paths.secrets + /hana-user.age;
@@ -71,18 +71,21 @@ in
         };
         recovery = {
           file = self.paths.secrets + /recovery.age;
-          owner = "root";
-          path = "/home/${username}/.config/keys/recovery.txt";
+          owner = "antonio";
+          mode = "0500";
+          path = "/etc/keys/recovery.txt";
         };
         anilist = {
           file = self.paths.secrets + /anilist.age;
           owner = "antonio";
-          path = "/home/${username}/.config/keys/anilist.txt";
+          mode = "0500";
+          path = "/etc/keys/anilist.txt";
         };
         ssh-kagura = {
           file = self.paths.secrets + /ssh-hana.age;
-          owner = "root";
-          path = "home/${username}/.config/keys/ssh-kagura";
+          owner = "antonio";
+          mode = "0500";
+          path = "/etc/keys/ssh-hana";
         };
       };
     };

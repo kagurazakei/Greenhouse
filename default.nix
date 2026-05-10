@@ -8,6 +8,8 @@ let
   inputSpec = {
     nixpkgs = inputs.nixpkgs;
     hjem = inputs.hjem;
+    flake-utils = inputs.flake-utils;
+    greeter.inputs.utils.follows = "flake-utils";
     neovim-nightly = {
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -16,17 +18,30 @@ let
       inputs.hjem.follows = "hjem";
     };
   };
-  outputs = resolvedInputs: {
-    resolved = resolvedInputs;
+  outputs = with-inputs: {
+    resolved = with-inputs;
   };
   flakeResult = with-inputs-lib sources inputSpec outputs;
-  resolvedInputs = flakeResult.resolved;
-
-  myPackages = import ./pkgs {
-    pkgs = nixpkgs;
-    lib = nixpkgs.lib;
-  };
-
+  with-inputs = flakeResult.resolved;
+  zpkgs =
+    let
+      lib = nixpkgs.lib;
+      filesystem = lib.filesystem;
+      callPackageWith = lib.callPackageWith;
+      system = nixpkgs.stdenv.hostPlatform.system;
+      pkgs = import sources.nixpkgs {
+        inherit system sources;
+        config.allowUnfree = true;
+      };
+      callPackage = callPackageWith pkgs;
+    in
+    {
+      customDeri = filesystem.packagesFromDirectoryRecursive {
+        inherit (pkgs) newScope;
+        inherit callPackage;
+        directory = self.paths.pkgs;
+      };
+    };
   modules = {
     imports =
       utils.recursiveImport {
@@ -42,25 +57,23 @@ let
       ++ [
         {
           _module.args = {
-            zpkgs = myPackages;
+            zpkgs = zpkgs.customDeri;
             inherit self;
-            resolvedInputs = resolvedInputs; # Now available in modules
           };
         }
       ];
   };
-
   self =
     (nixpkgs.lib.evalModules {
       modules = [ modules ];
+
       specialArgs = {
         inherit
-          self
           utils
           inputs
           username
           with-inputs-lib
-          resolvedInputs
+          with-inputs
           ;
         pkgs = nixpkgs;
       };

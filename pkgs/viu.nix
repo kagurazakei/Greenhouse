@@ -3,10 +3,10 @@
   python312Packages,
   mpv,
   writeShellScriptBin,
+  sources,
 }:
 
 let
-  sources = import ../npins;
   version = "nightly";
 
   wrappedMpv = writeShellScriptBin "mpv" ''

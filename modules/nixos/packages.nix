@@ -40,11 +40,19 @@
             qt6ct
             gtk-themes
             viu
+            equibop
+            ;
+          inherit (zpkgs.scripts)
+            npins-ui
+            npins-show
+            npins-helper
+            nixy
+            lutui
+            touchpad-toggle
             ;
           inherit (pkgs.master)
             nh
             cachix
-            equibop
             ;
           inherit (pkgs)
             ffmpeg

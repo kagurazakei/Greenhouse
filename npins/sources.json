@@ -79,17 +79,20 @@
       "hash": "sha256-7sFNtEl36c8vo50CGn1dH4ewBT9kmRIgTYYT4JLuf6o="
     },
     "equibop": {
-      "type": "Git",
+      "type": "GitRelease",
       "repository": {
         "type": "GitHub",
         "owner": "Equicord",
         "repo": "Equibop"
       },
-      "branch": "main",
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
       "submodules": false,
-      "revision": "5d72ea5a2b143c70faa259e20c094da40a168ba7",
-      "url": "https://github.com/Equicord/Equibop/archive/5d72ea5a2b143c70faa259e20c094da40a168ba7.tar.gz",
-      "hash": "sha256-CPRn1F15N4Rjry91Gu+ZXWpKVTOEnHI3TmZn8502QB4="
+      "version": "v3.1.9",
+      "revision": "44000f82b50fd3497002aa965b217e8d2489dd53",
+      "url": "https://api.github.com/repos/Equicord/Equibop/tarball/refs/tags/v3.1.9",
+      "hash": "sha256-4v0NKGmdbEdHyjz35l+QUnXvnVfLzIe1vLxOSmdgbYQ="
     },
     "fish": {
       "type": "Git",
@@ -119,6 +122,22 @@
       "revision": "ad02792f7543754569fe2fd3d5787ee00ef40be2",
       "url": "https://api.github.com/repos/fricklerhandwerk/flake-inputs/tarball/refs/tags/4.1.0",
       "hash": "sha256-dSECtDeIOGKGsbEOOcOHbZ2NYDy0D/x0hlbiKvpWp8g="
+    },
+    "flake-utils": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "numtide",
+        "repo": "flake-utils"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.0.0",
+      "revision": "04c1b180862888302ddfb2e3ad9eaa63afc60cf8",
+      "url": "https://api.github.com/repos/numtide/flake-utils/tarball/refs/tags/v1.0.0",
+      "hash": "sha256-gzTw/v1vj4dOVbpBSJX4J0DwUR6LIyXo7/SuuTJp1kM="
     },
     "ghostty": {
       "type": "Git",
@@ -442,11 +461,11 @@
         "owner": "kagurazakei",
         "repo": "sysc-greet"
       },
-      "branch": "main",
+      "branch": "master",
       "submodules": false,
-      "revision": "72e7ceb54fe0802ec444d65e67cdcdd0c09f88cd",
-      "url": "https://github.com/kagurazakei/sysc-greet/archive/72e7ceb54fe0802ec444d65e67cdcdd0c09f88cd.tar.gz",
-      "hash": "sha256-W3kMZTkg+VepvmGOflBsvIg5y3CiNvvgMn4KojyCeNA="
+      "revision": "098e009fc41282ae96f9c09fb32c7c1532eb6b00",
+      "url": "https://github.com/kagurazakei/sysc-greet/archive/098e009fc41282ae96f9c09fb32c7c1532eb6b00.tar.gz",
+      "hash": "sha256-V8hx9ttICGHMu8gDmj+r/U0GsX4dDlomDH8H6OL2Fy0="
     },
     "viu": {
       "type": "GitRelease",

@@ -2,6 +2,7 @@
   lib,
   stdenv,
   callPackage,
+  fetchFromGitHub,
   makeWrapper,
   makeDesktopItem,
   copyDesktopItems,
@@ -14,14 +15,13 @@
   nodejs,
   withTTS ? true,
   withMiddleClickScroll ? false,
+  sources,
 }:
-let
-  sources = import ../../npins;
-in
 stdenv.mkDerivation (finalAttrs: {
   pname = "equibop";
   version = "nightly";
   src = sources.equibop;
+
   postPatch = ''
     substituteInPlace scripts/build/build.mts \
       --replace-fail 'gitHash = execSync("git rev-parse HEAD", { encoding: "utf-8" }).trim();' 'gitHash = "${finalAttrs.src.hash}"'

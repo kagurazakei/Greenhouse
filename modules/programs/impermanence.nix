@@ -19,10 +19,12 @@
           group = "colord";
           mode = "u=rwx,g=rx,o=";
         }
+        "/var/lib/agenix"
       ];
       files = [
         ".screenrc"
         "/etc/sops-nix/keys.txt"
+        "/etc/sops-nix/id_ed25519"
         {
           file = "/var/keys/secret_file";
           parentDirectory = {
