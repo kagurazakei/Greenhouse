@@ -53,13 +53,14 @@
     in
     {
       users = {
-        defaultUserShell = pkgs.fish;
+        defaultUserShell = pkgs.master.fish;
         mutableUsers = true;
-        users.root.shell = pkgs.fish;
+        users.root.shell = pkgs.master.fish;
       };
       documentation.man.cache.enable = false; # screw this too
       programs.fish = {
         enable = true;
+        package = pkgs.master.fish;
         useBabelfish = true;
         generateCompletions = false; # fuck this shit (time to manually generate em)
         shellAbbrs = {

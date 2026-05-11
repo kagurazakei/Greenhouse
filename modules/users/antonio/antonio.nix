@@ -7,7 +7,7 @@
 let
   username = "antonio";
   dots = "${self.paths.dots}";
-  iconSource = dots + "/profile.png"; # Define once
+  iconSource = dots + "/images/profile.png"; # Define once
 in
 {
   modules.hjem.${username} =
@@ -30,8 +30,15 @@ in
         inherit username;
         enable = true;
         qt = {
-          colorScheme = self.paths.dots + "/theme/BreezeDark.colors";
-          iconTheme = "Papirus-Dark";
+          colorScheme = self.paths.dots + "/theme/rose-pine.colors";
+          iconTheme = "oomox-tokyodark-terminal";
+        };
+        gtk = {
+          name = "oomox-snazzy";
+        };
+        cursor = {
+          name = "Yuurei-Angel";
+          size = 32;
         };
       };
       users.users.${username} = {
@@ -44,7 +51,7 @@ in
           "render"
           "libvrtd"
         ];
-        shell = pkgs.fish;
+        shell = pkgs.master.fish;
 
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEaNh2GVxWz2zLxDa8cMnPtfYQPk1A3xlKKVuKOTNrp2 antonio@hana"
@@ -52,7 +59,10 @@ in
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDT989Rm6vSVS4cSP2NevoXVS7UnFVYHgfsE6dbM2+s6 hana@antonio"
         ];
       };
-      programs.fish.enable = true;
+      programs.fish = {
+        enable = true;
+        package = lib.mkForce pkgs.master.fish;
+      };
       programs.gpu-screen-recorder.enable = true;
 
       # Hjem dotfiles
@@ -99,7 +109,8 @@ in
     "bottom" = "/bottom";
     "btop" = "/btop";
     "kitty/kitty.conf" = d: d.dotsDir + "/kitty/${d.lib.toLower d.config.networking.hostName}.conf";
-    "kitty/themes" = "/kitty/themes";
+    "kitty/themes/rose-pine.conf" = { ... }: inputs.rosep-kitty + "/dist/rose-pine.conf";
+    "kitty/themes/oxocarbon.conf" = "/kitty/themes/oxocarbon.conf";
     "carapace/carapace.toml" = "/carapace/carapace.toml";
     "equibop/settings.json" = "/equibop/settings.json";
     "equibop/themes" = "/equibop/themes";

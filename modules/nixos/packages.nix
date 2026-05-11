@@ -40,6 +40,7 @@
             gtk-themes
             viu
             equibop
+            stash
             ;
           inherit (zpkgs.scripts)
             npins-ui

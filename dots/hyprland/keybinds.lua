@@ -1,12 +1,3 @@
--- =========================
--- KEYBINDS.LUA
--- Converted from keybinds.conf
--- =========================
-
-----------------
--- VARIABLES
-----------------
-
 local terminal = "kitty"
 local fileManager = terminal .. " --class float-fm -e yazi"
 local menu = "TERMINAL=" .. terminal .. " fuzzel"
@@ -14,20 +5,20 @@ local viuFloat = terminal .. " --class float-viu -e viu"
 
 local mainMod = "SUPER"
 local tpd = "elan962c:00-04f3:30d0-touchpad"
-
-----------------
--- HELPERS
-----------------
+hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true }) -- ALT + LMB: Move a window by dragging more than 10px.
+hl.bind("ALT + mouse:272", hl.dsp.window.resize(), { mouse = true }) -- ALT + LMB: Floats a window by clicking
+-- To switch between windows in a floating workspace:
+hl.bind("ALT + Tab", function()
+	hl.dispatch(hl.dsp.window.cycle_next()) -- Change focus to another window
+	hl.dispatch(hl.dsp.window.bring_to_top()) -- Bring it to the top
+end)
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-
--- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -37,8 +28,8 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + Equal", hl.dsp.layout("colresize +0.1"))
 hl.bind(mainMod .. " + Minus", hl.dsp.layout("colresize -0.1"))
 hl.bind(mainMod .. " + Period", hl.dsp.layout("promote"))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("swapcol l"))
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. "  + F", hl.dsp.layout("colresize +conf"))
 
 hl.bind(
@@ -77,18 +68,15 @@ hl.bind("SUPER + S", hl.dsp.exec_cmd("ambxst run tools"))
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("ambxst run screenshot"))
 hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("ambxst run screenrecord"))
 hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("ambxst run lens"))
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("loginctl lock-session"))
 -- Switch workspaces with mainMod + [0-9] Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
-
--- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + U", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + U", hl.dsp.window.move({ workspace = "special:magic" }))
-
--- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 local function exec(cmd)
@@ -113,10 +101,6 @@ hl.bind(mainMod .. " + SHIFT + F", exec("hyprctl dispatch fullscreenstate 2 1"))
 hl.bind("ALT + TAB", exec("hyprctl dispatch cyclenext"))
 
 hl.bind(mainMod .. " + F", exec("hyprctl dispatch layoutmsg 'colresize +conf'"))
-
-----------------
--- APPLICATIONS
-----------------
 
 hl.bind(mainMod .. " + RETURN", exec(terminal))
 
@@ -183,27 +167,12 @@ for i = 1, 10 do
 
 	hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
-
-----------------
--- SCROLL WORKSPACES
-----------------
-
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-
-----------------
--- MOUSE BINDS
-----------------
-
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
-----------------
--- PLAYERCTL
-----------------
-
 hl.bind("XF86AudioNext", exec("playerctl next"), { locked = true })
 
 hl.bind("XF86AudioPause", exec("playerctl play-pause"), { locked = true })
@@ -211,11 +180,6 @@ hl.bind("XF86AudioPause", exec("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", exec("playerctl play-pause"), { locked = true })
 
 hl.bind("XF86AudioPrev", exec("playerctl previous"), { locked = true })
-
-----------------
--- LID SWITCH
-----------------
-
 hl.bind("switch:off:Lid Switch", exec([[hyprctl keyword monitor "eDP-1,preferred,auto,auto"]]), { locked = true })
 
 hl.bind("switch:on:Lid Switch", exec([[hyprctl keyword monitor "eDP-1, disable"]]), { locked = true })

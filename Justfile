@@ -13,7 +13,10 @@ boot host=`hostname` *flags:
 build host=`hostname` *flags:
    nh os build --file {{root}}/default.nix nC.{{host}} {{flags}} --use-substitutes
 
-deploy target host=`hostname` *flags:
+deploy-boot target host=`hostname` *flags:
    nh os boot --file {{root}}/default.nix nC.{{host}} --build-host localhost --target-host {{target}} {{flags}} --use-substitutes
+
+deploy-switch target host=`hostname` *flags:
+   nh os switch --file {{root}}/default.nix nC.{{host}} --build-host localhost --target-host {{target}} {{flags}} --use-substitutes
 clean:
    sudo nix-collect-garbage -d; nh clean all

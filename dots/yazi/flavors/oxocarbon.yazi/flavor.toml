@@ -16,7 +16,7 @@ count_cut      = { fg = "#11121D", bg = "#FA4D56" }
 count_selected = { fg = "#11121D", bg = "#F1C21B" }
 
 border_symbol = "│"
-border_style  = { fg = "#3B4261" }
+border_style  = { fg = "#EB6F92" }
 
 [tabs]
 active   = { fg = "#11121D", bg = "#78A9FF", bold = true }

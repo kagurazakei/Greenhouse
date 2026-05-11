@@ -36,11 +36,6 @@
             comment = "Niri compositor managed by UWSM";
             binPath = "/run/current-system/sw/bin/niri-session";
           };
-          mango = {
-            prettyName = "Mango (UWSM)";
-            comment = "Mango compositor managed by UWSM";
-            binPath = "/run/current-system/sw/bin/mango";
-          };
         };
       };
       xdg.portal = {

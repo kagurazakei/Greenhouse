@@ -1,4 +1,8 @@
 .direnv
 .git
+.envrc 
+.ignore
+result/
+/result
 
 

@@ -15,7 +15,7 @@ in
       self.modules.programs.dots_impure
       self.modules.programs.dots_yazi
       self.modules.programs.spicetify
-      self.modules.programs.dms-greeter
+      self.modules.programs.sysc-greet
       self.modules.programs.ambxst
       self.modules.programs.git
       self.modules.programs.dolphin
@@ -33,6 +33,7 @@ in
       self.modules.nixos.locale
       self.modules.nixos.networking
       self.modules.nixos.nix
+      self.modules.nixos.nix-index-database
       self.modules.nixos.misc
       self.modules.nixos.packages
       self.modules.nixos.nvidia
@@ -45,6 +46,7 @@ in
       self.modules.wm._
       self.modules.wm.hyprland
       self.modules.wm.niri
+      self.modules.wm.mango
 
       self.modules.hjem._
       self.modules.hjem.antonio

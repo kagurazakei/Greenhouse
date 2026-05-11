@@ -1,10 +1,11 @@
 let
   sources = import ./npins;
+  inputs = import ./inputs.nix;
   nixpkgs = import sources.nixpkgs { };
   utils = import ./utils;
-  inputs = import ./inputs.nix;
   username = "antonio";
   with-inputs-lib = import sources.with-inputs;
+
   inputSpec = {
     nixpkgs = inputs.nixpkgs;
     hjem = inputs.hjem;
@@ -12,12 +13,6 @@ let
     quickshell = inputs.quickshell;
     hyprland = inputs.hyprland;
     niri = inputs.niri;
-    crane = inputs.crane;
-    sysc-greet = {
-      inputs.utils.follows = "flake-utils";
-      inputs.hyprland.follows = "hyprland";
-      inputs.niri.follows = "niri";
-    };
     neovim-nightly = {
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -26,16 +21,20 @@ let
       inputs.hjem.follows = "hjem";
     };
     ambxst.quickshell.follows = "quickshell";
-    tuigreet = {
+    sysc-greet = {
+      inputs.utils.follows = "flake-utils";
+      inputs.hyprland.follows = "hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.crane.follows = "crane";
     };
   };
+
   outputs = with-inputs: {
     resolved = with-inputs;
   };
+
   flakeResult = with-inputs-lib sources inputSpec outputs;
   with-inputs = flakeResult.resolved;
+
   zpkgs =
     let
       lib = nixpkgs.lib;
@@ -55,6 +54,7 @@ let
         directory = self.paths.pkgs;
       };
     };
+
   modules = {
     imports =
       utils.recursiveImport {
@@ -76,10 +76,12 @@ let
         }
       ];
   };
+
   self =
     (nixpkgs.lib.evalModules {
-      modules = [ modules ];
-
+      modules = [
+        modules
+      ];
       specialArgs = {
         inherit
           utils

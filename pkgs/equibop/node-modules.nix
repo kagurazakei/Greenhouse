@@ -11,12 +11,10 @@ stdenvNoCC.mkDerivation {
   inherit (equibop) version src;
   pname = equibop.pname + "-modules";
 
-  impureEnvVars =
-    lib.fetchers.proxyImpureEnvVars
-    ++ [
-      "GIT_PROXY_COMMAND"
-      "SOCKS_SERVER"
-    ];
+  impureEnvVars = lib.fetchers.proxyImpureEnvVars ++ [
+    "GIT_PROXY_COMMAND"
+    "SOCKS_SERVER"
+  ];
 
   nativeBuildInputs = [
     bun
@@ -50,7 +48,13 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  outputHash = "sha256-pJp4l0QJAg42gj/R4bq4P1iVtMehkvNs7hv9/3RmNsI=";
+  outputHash =
+    {
+      x86_64-linux = "sha256-p8jx9HDYG2q2nhBiBK8XDTYm9O0ptTqv8L+PrQ8oiy8=";
+      aarch64-linux = "sha256-UsccQFaSSjhmv1+oF2FZcRG8xtWBCcPD+tizbdQ7SSI=";
+    }
+    .${stdenvNoCC.hostPlatform.system}
+      or (throw "Unsupported system ${stdenvNoCC.hostPlatform.system}");
   outputHashAlgo = "sha256";
   outputHashMode = "recursive";
 }

@@ -2,6 +2,7 @@
   self,
   inputs,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -17,21 +18,9 @@ let
     nixosSystem {
       modules = [
         self.modules.hosts.${hostname}
-        (
-          { pkgs, ... }:
-          {
-            nixpkgs.overlays = [
-              (_final: prev: {
-                system = prev.stdenv.hostPlatform.system;
-                master = import inputs.master {
-                  inherit (prev.stdenv.hostPlatform) system;
-                  config.allowUnfree = true;
-                };
-                swww = pkgs.awww;
-              })
-            ];
-          }
-        )
+        {
+          nixpkgs.overlays = import ../../overlays { inherit inputs; };
+        }
       ];
       specialArgs = {
         pkgsForSystem = pkgsForSystem;

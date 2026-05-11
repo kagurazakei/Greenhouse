@@ -34,6 +34,8 @@ in
     pkgs.kdePackages.qtdeclarative
     pkgs.llvmPackages.clang-tools
     pkgs.neocmakelsp
+    pkgs.kdlfmt
+    pkgs.tombi
   ];
   enable = true;
   plugins = {

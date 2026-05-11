@@ -236,10 +236,10 @@ input {
     focus-follows-mouse
     workspace-auto-back-and-forth
 }
-output "HDMI-A-1" {
+output "eDP-1" {
     scale 1.0
     transform "normal"
-    mode "1920x1080"
+    mode "2160x1440"
 }
 window-rule {
     draw-border-with-background false
@@ -251,6 +251,9 @@ window-rule {
     match app-id="^quickshell$"
     match app-id="^noctalia-shell$"
     opacity 0.85
+    background-effect {
+        blur true
+    }
 }
 window-rule {
     match is-focused=false
@@ -311,6 +314,9 @@ window-rule {
     match app-id="^(firefox-nightly)$"
     match app-id="^(zen-browser)$"
     opacity 0.85
+    background-effect {
+        blur true
+    }
 }
 window-rule {
     match app-id="^(dropdown)$"
@@ -422,6 +428,9 @@ layer-rule {
     match namespace="^noctalia-wallpaper*"
     match namespace="^quickshell*"
     place-within-backdrop true
+    background-effect {
+        blur true
+    }
 }
 workspace "general" {
     layout {

@@ -26,12 +26,9 @@
 }:
 stdenv.mkDerivation {
   pname = "mango-unwrapped";
-  version =
-    if (sources.mangowc ? version)
-    then sources.mangowc.version
-    else "nightly";
+  version = if (sources.mango ? version) then sources.mango.version else "nightly";
 
-  src = sources.mangowc;
+  src = sources.mango;
 
   # patches = [
   #   (fetchpatch {
@@ -54,27 +51,26 @@ stdenv.mkDerivation {
     wayland-scanner
   ];
 
-  buildInputs =
-    [
-      libinput
-      libxcb
-      libxkbcommon
-      pcre2
-      pixman
-      wayland
-      wayland-protocols
-      wlroots_0_19
-      scenefx
-      libGL
-    ]
-    ++ lib.optionals enableXWayland [
-      libX11
-      xcbutilwm
-      xwayland
-    ];
+  buildInputs = [
+    libinput
+    libxcb
+    libxkbcommon
+    pcre2
+    pixman
+    wayland
+    wayland-protocols
+    wlroots_0_19
+    scenefx
+    libGL
+  ]
+  ++ lib.optionals enableXWayland [
+    libX11
+    xcbutilwm
+    xwayland
+  ];
 
   passthru = {
-    providedSessions = ["mango"];
+    providedSessions = [ "mango" ];
     uwsm-plugin = ./mango-plugin.sh;
   };
 
@@ -83,7 +79,7 @@ stdenv.mkDerivation {
     description = "A streamlined but feature-rich Wayland compositor";
     homepage = "https://github.com/DreamMaoMao/mango";
     license = lib.licenses.gpl3Plus;
-    maintainers = [];
+    maintainers = [ ];
     platforms = lib.platforms.unix;
   };
 }
