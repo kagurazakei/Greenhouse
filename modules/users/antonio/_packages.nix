@@ -98,4 +98,5 @@ builtins.attrValues {
     plugins = [ pkgs.obs-studio-plugins.obs-pipewire-audio-capture ];
   })
   vixvim
+
 ]

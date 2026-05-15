@@ -23,8 +23,12 @@
       pkgs,
       lib,
       config,
+      inputs,
       ...
     }:
+    let
+      hyprview = (pkgs.callPackage (inputs.hyprview + "/default.nix") { });
+    in
     {
       imports = [ self.modules.wm._ ];
 
@@ -50,7 +54,6 @@
           portalPackage =
             inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         };
-
         xdg.portal = {
           config.hyprland = {
             default = [
@@ -62,13 +65,19 @@
 
         #polkit
         environment.systemPackages = [
-          pkgs.kdePackages.qtwayland
           pkgs.libsForQt5.qt5.qtwayland
-          pkgs.hyprpolkitagent
-          pkgs.hyprshutdown
-          pkgs.app2unit
-          pkgs.kitty
-        ];
+        ]
+        ++ builtins.attrValues {
+          inherit hyprview;
+          inherit (pkgs.kdePackages) qtwayland;
+          inherit (pkgs)
+            hyprpolkitagent
+            hyprshutdown
+            app2unit
+            kitty
+            ;
+        };
+
       };
     };
 }

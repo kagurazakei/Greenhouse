@@ -204,6 +204,19 @@
       "url": "https://github.com/hyprwm/Hyprland/archive/998d3af07f57603710674e7cb337b0814d925caf.tar.gz",
       "hash": "sha256-fKMHYZexPtUUVVvGRake8HE0qXxSdKCtUGdNYqRFNec="
     },
+    "hyprview": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "quickshell-overview"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "ea2e8a88041308dcc3cca40fe38efff666635aa9",
+      "url": "https://github.com/kagurazakei/quickshell-overview/archive/ea2e8a88041308dcc3cca40fe38efff666635aa9.tar.gz",
+      "hash": "sha256-eA0lqJZDy3FeqGyFdF5qAuQmHEj4H/DXKTIUug/9+8Q="
+    },
     "impermanence": {
       "type": "Git",
       "repository": {
