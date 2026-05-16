@@ -9,7 +9,7 @@
     imports = [ with-inputs.sysc-greet.nixosModules.default ];
     services.sysc-greet = {
       enable = true;
-      compositor = "niri";
+      compositor = "hyprland";
       hyprlandPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       niriPackage = pkgs.niri;
     };

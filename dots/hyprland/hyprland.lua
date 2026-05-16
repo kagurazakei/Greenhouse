@@ -32,7 +32,6 @@ hl.env("GTK_THEME", "oomox-snazzy")
 ----------------
 -- GENERAL
 ----------------
-
 hl.config({
 	general = {
 		gaps_in = 2,
@@ -58,7 +57,9 @@ hl.config({
 		allow_tearing = false,
 		layout = "scrolling",
 	},
-
+	animations = {
+		enabled = true,
+	},
 	xwayland = {
 		force_zero_scaling = true,
 	},

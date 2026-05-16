@@ -200,9 +200,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "998d3af07f57603710674e7cb337b0814d925caf",
-      "url": "https://github.com/hyprwm/Hyprland/archive/998d3af07f57603710674e7cb337b0814d925caf.tar.gz",
-      "hash": "sha256-fKMHYZexPtUUVVvGRake8HE0qXxSdKCtUGdNYqRFNec="
+      "revision": "b74b1f934f03b74df2214e06e26a8c9098236602",
+      "url": "https://github.com/hyprwm/Hyprland/archive/b74b1f934f03b74df2214e06e26a8c9098236602.tar.gz",
+      "hash": "sha256-a52shxptMqdBLiDkUq1rT7IQB3jRgZLWLvcZaMYX+Gg="
     },
     "hyprview": {
       "type": "Git",
@@ -531,9 +531,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "3c759e895176c1bb64a10307fde3d09c6d5a8ab7",
-      "url": "https://github.com/kagurazakei/sysc-greet/archive/3c759e895176c1bb64a10307fde3d09c6d5a8ab7.tar.gz",
-      "hash": "sha256-T8xhJfximHdkX6qZH/LYMjdhrB2sZoxLnrOv55g9iWc="
+      "revision": "6e3cc5f54ead463513fb31de3210100a96041a07",
+      "url": "https://github.com/kagurazakei/sysc-greet/archive/6e3cc5f54ead463513fb31de3210100a96041a07.tar.gz",
+      "hash": "sha256-w/sC66WRbnBOlgqu9TDhHLI67a431391GgRZzmkSjpQ="
     },
     "viu": {
       "type": "GitRelease",

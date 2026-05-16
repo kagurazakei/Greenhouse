@@ -55,52 +55,52 @@
         withUWSM = mkEnableOption "uwsm for mangowc" // {
           default = true;
         };
-      };
 
-      config = {
-        environment.systemPackages = [
-          cfg.package
-          pkgs.wlsunset
-        ];
-
-        systemd.user.services.hypridle.path = mkForce [ cfg.package ];
-
-        # REQUIRES uwsm finalize in autostart.sh
-        programs.uwsm = mkIf cfg.withUWSM {
-          enable = true;
-          package = uwsmWithPlugin;
-          waylandCompositors.mango = {
-            prettyName = "MangoWC";
-            comment = "Mango compositor managed by UWSM";
-            binPath = "/run/current-system/sw/bin/mango";
-          };
-        };
-
-        xdg.portal = {
-          enable = true;
-          wlr.enable = true;
-          configPackages = [ cfg.package ];
-          extraPortals = [
-            pkgs.xdg-desktop-portal-gtk
-            pkgs.xdg-desktop-portal-wlr
+        config = {
+          environment.systemPackages = [
+            cfg.package
+            pkgs.wlsunset
           ];
-          config.mango = {
-            # borrowed from config for sway
-            default = [ "gtk" ];
-            "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-            "org.freedesktop.impl.portal.Screenshot" = "wlr";
-            "org.freedesktop.impl.portal.Inhibit" = "none";
-            "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+
+          systemd.user.services.hypridle.path = mkForce [ cfg.package ];
+
+          # REQUIRES uwsm finalize in autostart.sh
+          programs.uwsm = mkIf cfg.withUWSM {
+            enable = true;
+            package = uwsmWithPlugin;
+            waylandCompositors.mango = {
+              prettyName = "MangoWC";
+              comment = "Mango compositor managed by UWSM";
+              binPath = "/run/current-system/sw/bin/mango";
+            };
           };
-        };
 
-        services.dbus.packages = lib.mkDefault [ pkgs.thunar ];
-        security.polkit.enable = true;
-        programs.xwayland.enable = true;
+          xdg.portal = {
+            enable = true;
+            wlr.enable = true;
+            configPackages = [ cfg.package ];
+            extraPortals = [
+              pkgs.xdg-desktop-portal-gtk
+              pkgs.xdg-desktop-portal-wlr
+            ];
+            config.mango = {
+              # borrowed from config for sway
+              default = [ "gtk" ];
+              "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+              "org.freedesktop.impl.portal.Screenshot" = "wlr";
+              "org.freedesktop.impl.portal.Inhibit" = "none";
+              "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+            };
+          };
 
-        services = {
-          displayManager.sessionPackages = mkIf (!cfg.withUWSM) [ cfg.package ];
-          graphical-desktop.enable = true;
+          services.dbus.packages = lib.mkDefault [ pkgs.thunar ];
+          security.polkit.enable = true;
+          programs.xwayland.enable = true;
+
+          services = {
+            displayManager.sessionPackages = mkIf (!cfg.withUWSM) [ cfg.package ];
+            graphical-desktop.enable = true;
+          };
         };
       };
     };
