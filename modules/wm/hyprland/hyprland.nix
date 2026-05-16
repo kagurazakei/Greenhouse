@@ -30,7 +30,10 @@
       hyprview = (pkgs.callPackage (inputs.hyprview + "/default.nix") { });
     in
     {
-      imports = [ self.modules.wm._ ];
+      imports = [
+        self.modules.wm._
+        inputs.hyprland.nixosModules.default
+      ];
 
       options = {
         wm.hyprland.enable = lib.mkOption {

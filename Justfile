@@ -18,5 +18,12 @@ deploy-boot target host=`hostname` *flags:
 
 deploy-switch target host=`hostname` *flags:
    nh os switch --file {{root}}/default.nix nC.{{host}} --build-host localhost --target-host {{target}} {{flags}} --use-substitutes
+
 clean:
    sudo nix-collect-garbage -d; nh clean all
+
+update *flags:
+  npins update {{flags}}
+
+pinsgrade: 
+  npins upgrade

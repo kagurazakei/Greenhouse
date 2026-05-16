@@ -15,6 +15,7 @@
     "mango/hardware.conf" = d: d.dotsDir + "/mango/${d.lib.toLower d.config.networking.hostName}.conf";
     "mango/config.conf" = "/mango/config.conf";
   };
+
   modules.wm.mango =
     {
       config,
@@ -24,7 +25,6 @@
     }:
     let
       inherit (lib)
-        mkEnableOption
         mkOption
         mkIf
         mkForce
@@ -37,7 +37,6 @@
         postBuild = ''
           ln -sf ${zpkgs.mangowc.uwsm-plugin} $out/share/uwsm/plugins/mango.sh
         '';
-
         meta = pkgs.uwsm.meta // {
           outputsToInstall = [ "out" ];
         };
@@ -45,62 +44,65 @@
     in
     {
       options.wm.mango = {
-        enable = lib.mkOption {
-          type = lib.type.bool;
+        enable = mkOption {
+          type = lib.types.bool;
           default = false;
         };
         package = mkOption {
+          type = lib.types.package;
           default = zpkgs.mangowc;
         };
-        withUWSM = mkEnableOption "uwsm for mangowc" // {
+        withUWSM = mkOption {
+          type = lib.types.bool;
           default = true;
+          description = "Enable UWSM for mangoWC";
+        };
+      };
+
+      config = mkIf cfg.enable {
+        environment.systemPackages = [
+          cfg.package
+          pkgs.wlsunset
+        ];
+
+        systemd.user.services.hypridle.path = mkForce [ cfg.package ];
+
+        # REQUIRES uwsm finalize in autostart.sh
+        programs.uwsm = mkIf cfg.withUWSM {
+          enable = true;
+          package = uwsmWithPlugin;
+          waylandCompositors.mango = {
+            prettyName = "MangoWC";
+            comment = "Mango compositor managed by UWSM";
+            binPath = "/run/current-system/sw/bin/mango";
+          };
         };
 
-        config = {
-          environment.systemPackages = [
-            cfg.package
-            pkgs.wlsunset
+        xdg.portal = {
+          enable = true;
+          wlr.enable = true;
+          configPackages = [ cfg.package ];
+          extraPortals = [
+            pkgs.xdg-desktop-portal-gtk
+            pkgs.xdg-desktop-portal-wlr
           ];
-
-          systemd.user.services.hypridle.path = mkForce [ cfg.package ];
-
-          # REQUIRES uwsm finalize in autostart.sh
-          programs.uwsm = mkIf cfg.withUWSM {
-            enable = true;
-            package = uwsmWithPlugin;
-            waylandCompositors.mango = {
-              prettyName = "MangoWC";
-              comment = "Mango compositor managed by UWSM";
-              binPath = "/run/current-system/sw/bin/mango";
-            };
+          config.mango = {
+            # borrowed from config for sway
+            default = [ "gtk" ];
+            "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+            "org.freedesktop.impl.portal.Screenshot" = "wlr";
+            "org.freedesktop.impl.portal.Inhibit" = "none";
+            "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
           };
+        };
 
-          xdg.portal = {
-            enable = true;
-            wlr.enable = true;
-            configPackages = [ cfg.package ];
-            extraPortals = [
-              pkgs.xdg-desktop-portal-gtk
-              pkgs.xdg-desktop-portal-wlr
-            ];
-            config.mango = {
-              # borrowed from config for sway
-              default = [ "gtk" ];
-              "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-              "org.freedesktop.impl.portal.Screenshot" = "wlr";
-              "org.freedesktop.impl.portal.Inhibit" = "none";
-              "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-            };
-          };
+        services.dbus.packages = lib.mkDefault [ pkgs.thunar ];
+        security.polkit.enable = true;
+        programs.xwayland.enable = true;
 
-          services.dbus.packages = lib.mkDefault [ pkgs.thunar ];
-          security.polkit.enable = true;
-          programs.xwayland.enable = true;
-
-          services = {
-            displayManager.sessionPackages = mkIf (!cfg.withUWSM) [ cfg.package ];
-            graphical-desktop.enable = true;
-          };
+        services = {
+          displayManager.sessionPackages = mkIf (!cfg.withUWSM) [ cfg.package ];
+          graphical-desktop.enable = true;
         };
       };
     };

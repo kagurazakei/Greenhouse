@@ -13,6 +13,7 @@ let
     quickshell = inputs.quickshell;
     hyprland = inputs.hyprland;
     niri = inputs.niri;
+    niri-nix = inputs.niri-nix;
     neovim-nightly = {
       inputs.nixpkgs.follows = "nixpkgs";
     };

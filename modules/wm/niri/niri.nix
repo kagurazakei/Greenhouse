@@ -3,6 +3,7 @@
   inputs,
   utils,
   username,
+  with-inputs,
   ...
 }:
 {
@@ -21,6 +22,7 @@
     {
       imports = [
         self.modules.wm._
+        with-inputs.niri-nix.nixosModules.default
       ];
       options = {
         wm.niri.enable = lib.mkOption {
@@ -37,11 +39,11 @@
         programs.niri = {
           enable = true;
           useNautilus = false;
+          withUWSM = false;
+          withXDG = false;
         }
         // lib.optionalAttrs (config.wm.niri.buildFromSrc) {
-          package = (inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.default).overrideAttrs (o: {
-            doCheck = false; # iynaix better not lie
-          });
+          package = pkgs.niri-unstable;
         };
 
         xdg.portal = {

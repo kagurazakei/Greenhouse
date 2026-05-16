@@ -252,9 +252,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "acc75af6563c9c15acf7a483252692ce1114fc93",
-      "url": "https://github.com/nixos/nixpkgs/archive/acc75af6563c9c15acf7a483252692ce1114fc93.tar.gz",
-      "hash": "sha256-kTyFTlttPEhvP615y9A7Kjpr8ubzXybCcZ15iUpy61o="
+      "revision": "8f046a390426b1fd03ae0a86dac4ee22a49a1f88",
+      "url": "https://github.com/nixos/nixpkgs/archive/8f046a390426b1fd03ae0a86dac4ee22a49a1f88.tar.gz",
+      "hash": "sha256-NeZFtjGnbwi0cw99ScYGmV8URzDCcodtyqBM5QVOkJE="
     },
     "mnw": {
       "type": "Git",
@@ -305,9 +305,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "2fab248459e27558f5fcf018603a18f64ae41f81",
-      "url": "https://codeberg.org/BANanaD3V/niri-nix/archive/2fab248459e27558f5fcf018603a18f64ae41f81.tar.gz",
-      "hash": "sha256-TxwnEDEButF84s1/0I/j3mXd5r6f0HIQOmveq1CZHc8="
+      "revision": "4136a4c78342215ec3754da4fdddb90b8cd8ae86",
+      "url": "https://codeberg.org/BANanaD3V/niri-nix/archive/4136a4c78342215ec3754da4fdddb90b8cd8ae86.tar.gz",
+      "hash": "sha256-963lknoQiISHEQc4IcmGpln7dkOzurhmv8XeHxVo2fI="
     },
     "nix-cachyos-kernel": {
       "type": "Git",
