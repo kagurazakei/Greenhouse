@@ -32,7 +32,6 @@
     {
       imports = [
         self.modules.wm._
-        inputs.hyprland.nixosModules.default
       ];
 
       options = {

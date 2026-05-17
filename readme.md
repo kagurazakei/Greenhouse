@@ -5,8 +5,13 @@
 
 <br>
 
-![](assets/image.png)
-
+![](assets/rice-1.png)
+<br>
+![](assets/rice-2.png)
+<br>
+![](assets/rice-3.png)
+![](assets/rice-4.png)
+<br>
 <br>
 
 > [!WARNING]

@@ -2,6 +2,8 @@
   inputs ? import ../npins,
 }:
 [
+  inputs.niri-nix.overlays.niri-nix
+  inputs.nix-cachyos-kernel.overlays.pinned
   (_final: prev: {
     inherit (prev.stdenv.hostPlatform) system;
     master = import inputs.master {
@@ -13,6 +15,4 @@
       config.allowUnfree = true;
     };
   })
-  inputs.niri-nix.overlays.niri-nix
-  inputs.nix-cachyos-kernel.overlays.pinned
 ]

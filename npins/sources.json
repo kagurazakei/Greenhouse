@@ -318,9 +318,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "863075d77217033287b266055400535f00d9c92d",
-      "url": "https://github.com/xddxdd/nix-cachyos-kernel/archive/863075d77217033287b266055400535f00d9c92d.tar.gz",
-      "hash": "sha256-3rEqWQNGwoZ6ux3trcjne9aHBEENrY4m3+HJFFt0Hnw="
+      "revision": "b7802a8f07e33eb152f4653dc9f04d9174871a65",
+      "url": "https://github.com/xddxdd/nix-cachyos-kernel/archive/b7802a8f07e33eb152f4653dc9f04d9174871a65.tar.gz",
+      "hash": "sha256-UR/DHVCNNwGTZorHR0+47tzXnejTnwg+ZtuGXJJRyuM="
     },
     "nix-flatpak": {
       "type": "Git",
@@ -371,9 +371,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "da5ad661ba4e5ef59ba743f0d112cbc30e474f32",
-      "url": "https://github.com/nixos/nixpkgs/archive/da5ad661ba4e5ef59ba743f0d112cbc30e474f32.tar.gz",
-      "hash": "sha256-zi7/fsqM/kFdNuED//4WOCUtezGtKKqRNORjMvfwjnA="
+      "revision": "d233902339c02a9c334e7e593de68855ad26c4cb",
+      "url": "https://github.com/nixos/nixpkgs/archive/d233902339c02a9c334e7e593de68855ad26c4cb.tar.gz",
+      "hash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE="
     },
     "npins": {
       "type": "Git",
@@ -427,6 +427,19 @@
       "revision": "7d1c9a9c6721606b129829134d6f614f015621e2",
       "url": "https://git.outfoxxed.me/outfoxxed/quickshell/archive/7d1c9a9c6721606b129829134d6f614f015621e2.tar.gz",
       "hash": "sha256-QSWgYuZUCNUJ/cxmaq83WkcT7lHQDDfsPVgH+96kIl0="
+    },
+    "qylock-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kagurazakei",
+        "repo": "qylock-nix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "4b16639a1ed025aa0ad7fc2299d0bdb42e546655",
+      "url": "https://github.com/kagurazakei/qylock-nix/archive/4b16639a1ed025aa0ad7fc2299d0bdb42e546655.tar.gz",
+      "hash": "sha256-ElhjD0b/xcjZCoWASuThL8i3nOBirPxeuB6YUcVvd3k="
     },
     "rosep-fish": {
       "type": "Git",
@@ -531,9 +544,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "6e3cc5f54ead463513fb31de3210100a96041a07",
-      "url": "https://github.com/kagurazakei/sysc-greet/archive/6e3cc5f54ead463513fb31de3210100a96041a07.tar.gz",
-      "hash": "sha256-w/sC66WRbnBOlgqu9TDhHLI67a431391GgRZzmkSjpQ="
+      "revision": "0560f04d2158f9f64244b779b5893b0e0c02c53a",
+      "url": "https://github.com/kagurazakei/sysc-greet/archive/0560f04d2158f9f64244b779b5893b0e0c02c53a.tar.gz",
+      "hash": "sha256-1tV2Pf341XN82MMt672r/8z3L0ynVxF7J1VqyYzTguA="
     },
     "viu": {
       "type": "GitRelease",

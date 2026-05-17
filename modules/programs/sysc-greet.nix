@@ -2,16 +2,27 @@
   inputs,
   with-inputs,
   pkgs,
+  lib,
   ...
 }:
 {
-  modules.programs.sysc-greet = {
-    imports = [ with-inputs.sysc-greet.nixosModules.default ];
-    services.sysc-greet = {
-      enable = true;
-      compositor = "hyprland";
-      hyprlandPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      niriPackage = pkgs.niri-unstable;
+  modules.programs.sysc-greet =
+    { config, ... }:
+    {
+      imports = [ with-inputs.sysc-greet.nixosModules.default ];
+      options = {
+        dm.sysc-greet.enable = lib.mkOption {
+          type = lib.types.bool;
+          default = true;
+        };
+      };
+      config = lib.mkIf (config.dm.sysc-greet.enable) {
+        services.sysc-greet = {
+          enable = true;
+          compositor = "niri";
+          hyprlandPackage = pkgs.hyprland;
+          niriPackage = inputs.niri-nix.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+        };
+      };
     };
-  };
 }

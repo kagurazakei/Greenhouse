@@ -25,7 +25,7 @@ let
     sysc-greet = {
       inputs.utils.follows = "flake-utils";
       inputs.hyprland.follows = "hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.niri.follows = "niri-nix";
     };
   };
 
